@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
+import './style/PlayerSearch.scss'
 
-const PlayerSearch = () => {
-  const [players, setPlayers] = useState([]);      // CSV 전체 데이터
-  const [keyword, setKeyword] = useState("");      // 검색어
-  const [filtered, setFiltered] = useState([]);    // 검색 결과
+const PlayerSearch = ({ onSelect }) => {
+  const [players, setPlayers] = useState([]);
+  const [keyword, setKeyword] = useState("");
+  const [filtered, setFiltered] = useState([]);
+  const [selected, setSelected] = useState(null);
 
-  // ✅ 1️⃣ CSV 불러오기 (컴포넌트가 처음 렌더링될 때 한 번 실행)
+  // CSV 불러오기
   useEffect(() => {
     fetch("/data/premier_league_players_ko.csv")
       .then((res) => res.text())
@@ -16,9 +18,9 @@ const PlayerSearch = () => {
       });
   }, []);
 
-  // ✅ 2️⃣ 검색 기능 (입력값이 바뀔 때마다 필터링)
+  // 검색 필터링
   useEffect(() => {
-    if (!keyword) {
+    if (!keyword.trim()) {
       setFiltered([]);
       return;
     }
@@ -31,32 +33,44 @@ const PlayerSearch = () => {
     setFiltered(result);
   }, [keyword, players]);
 
-  // ✅ 3️⃣ JSX (UI)
-  return (
-    <div style={{ padding: "20px", fontFamily: "Pretendard, sans-serif" }}>
-      <h2>⚽ 프리미어리그 선수 검색</h2>
+  // ✅ 선수 클릭 시 처리
+  const handleSelect = (player) => {
+    const fullName = player.player_name_ko || player.player_name;
+    setKeyword(fullName);
+    setSelected(fullName);
+    setFiltered([]); // 리스트 닫기
+    if (onSelect) onSelect(fullName);
+  };
 
+  return (
+    <div className="player-search">
       <input
         type="text"
+        className="player-input"
         placeholder="선수 이름(한글 또는 영어)"
         value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        style={{
-          width: "300px",
-          padding: "8px",
-          marginTop: "10px",
-          borderRadius: "8px",
-          border: "1px solid #ccc",
+        onChange={(e) => {
+          setKeyword(e.target.value);
+          setSelected(null);
         }}
       />
 
-      <ul style={{ marginTop: "20px" }}>
-        {filtered.map((player, idx) => (
-          <li key={idx} style={{ marginBottom: "6px" }}>
-            {player.player_name_ko || player.player_name} — {player.team}
-          </li>
-        ))}
-      </ul>
+      {filtered.length > 0 && (
+        <ul className="player-list">
+          {filtered.map((player, idx) => (
+            <li
+              key={idx}
+              className="player-item"
+              onClick={() => handleSelect(player)}
+            >
+              <span className="player-name">
+                {player.player_name_ko || player.player_name}
+              </span>
+              <span className="player-team"> — {player.team}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Header from './components/Header'
 import ProtectRoute from './components/ProtectRoute'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import UserDashboard from './pages/user/UserDashboard'
+import SearchFeed from './pages/search/SearchFeed' // ✅ 새로 추가된 검색 페이지
 
 import {
   fetchMe as apifetchMe,
@@ -16,24 +17,21 @@ import {
 } from "./api/client"
 
 function App() {
-
   const [user, setUser] = useState(() => {
     const raw = localStorage.getItem('user')
-
     return raw ? JSON.parse(raw) : null
   })
 
   const [token, setToken] = useState(() => {
-    localStorage.getItem('token')
+    return localStorage.getItem('token')
   })
-  
+
   const [me, setMe] = useState(null)
-  
   const isAuthed = !!token
-  
-  const hideOn = new Set(['/','/admin/login'])
+
+  const hideOn = new Set(['/', '/admin/login'])
   const showHeader = isAuthed && !hideOn.has(location.pathname)
-  
+
   const HandleAuthed = async ({ user, token }) => {
     try {
       setUser(user)
@@ -49,7 +47,7 @@ function App() {
     try {
       await apilogout()
     } catch (error) {
-
+      console.error(error)
     } finally {
       setUser(null)
       setToken(null)
@@ -74,44 +72,66 @@ function App() {
 
   return (
     <div className="page">
-      {showHeader && <Header
-      isAuthed={isAuthed}
-      user={user}
-      onLogout={handleLogout}
-      />}
+      {showHeader && (
+        <Header
+          isAuthed={isAuthed}
+          user={user}
+          onLogout={handleLogout}
+        />
+      )}
 
       <Routes>
+        {/* 비로그인 상태 페이지 */}
         <Route path="/" element={<Landing />} />
-        {/*로그인 회원가입 */}
+
+        {/* 관리자 로그인 */}
         <Route
           path="/admin/login"
-          element={<AuthPanel
-            isAuthed={isAuthed}
-            user={user}
-            me={me}
-            onFetchMe={handleFetchMe}
-            onLogout={handleLogout}
-            onAuthed={HandleAuthed}
-            requiredRole="admin"
-          />}
+          element={
+            <AuthPanel
+              isAuthed={isAuthed}
+              user={user}
+              me={me}
+              onFetchMe={handleFetchMe}
+              onLogout={handleLogout}
+              onAuthed={HandleAuthed}
+              requiredRole="admin"
+            />
+          }
         />
-        {/*사용자 보호구역*/}
+
+        {/* 사용자 보호 구역 */}
         <Route
-          path='/user'
+          path="/user"
           element={
             <ProtectRoute
               user={user}
               isAuthed={isAuthed}
-              redirect='/admin/login'
+              redirect="/admin/login"
             />
           }
         >
-          <Route index element={<Navigate to="/user/dashboard" replace/>}/>
-          <Route path='dashboard' element={<UserDashboard />}/>
+          <Route index element={<Navigate to="/user/dashboard" replace />} />
+          <Route path="dashboard" element={<UserDashboard />} />
         </Route>
-                {/* 관리자 보호구역 */}
+
+        {/* ✅ 공용 검색 페이지 (로그인 상태에서만 접근 가능) */}
         <Route
-          path='/admin'
+          path="/search"
+          element={
+            <ProtectRoute
+              user={user}
+              isAuthed={isAuthed}
+              redirect="/admin/login"
+            />
+          }
+        >
+          <Route index element={<SearchFeed />} />
+        </Route>
+
+        {/* 관리자 보호 구역 */}
+        <Route
+          path="/admin"
           element={
             <ProtectRoute
               isAuthed={isAuthed}
@@ -120,10 +140,12 @@ function App() {
             />
           }
         >
-          <Route index element={<Navigate to="/admin/dashboard" replace/>}/>
-          <Route path='dashboard' element={<AdminDashboard/>}/>
+          <Route index element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
         </Route>
-        <Route path='*' element={<Navigate to="/" replace />} />
+
+        {/* 기본 리다이렉트 */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
   )
