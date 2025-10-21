@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./style/Landing.scss"
+
 const Landing = () => {
     return (
         <section className="landing">

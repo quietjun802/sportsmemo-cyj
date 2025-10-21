@@ -1,0 +1,596 @@
+﻿team,team_code,player_id,player_name,position,nationality,player_name_ko
+Arsenal FC,ARS,3189,Kepa Arrizabalaga,Goalkeeper,Spain,케파 아리사발라가
+Arsenal FC,ARS,4832,David Raya,Goalkeeper,Spain,데이비드 라야
+Arsenal FC,ARS,171455,Tommy Setford,Goalkeeper,England,토미 셋포드
+Arsenal FC,ARS,285128,Max Dowman,Midfield,England,맥스 다우먼
+Arsenal FC,ARS,285598,Andre Harriman-Annous,Offence,England,안드레 해리먼-아누스
+Arsenal FC,ARS,244120,Myles Lewis-Skelly,Left-Back,England,마일스 루이스-스켈리
+Arsenal FC,ARS,188476,Ethan Nwaneri,Attacking Midfield,England,에단 느와네리
+Arsenal FC,ARS,172839,Cristhian Mosquera,Centre-Back,Spain,크리스티안 모스케라
+Arsenal FC,ARS,167720,Noni Madueke,Right Winger,England,노니 마두에케
+Arsenal FC,ARS,133512,Riccardo Calafiori,Left-Back,Italy,리카르도 칼라피오리
+Arsenal FC,ARS,125674,Piero Hincapié,Centre-Back,Ecuador,피에로 힌카피에
+Arsenal FC,ARS,115035,Martín Zubimendi,Defensive Midfield,Spain,마틴 주비멘디
+Arsenal FC,ARS,99813,Bukayo Saka,Right Winger,England,부카요 사카
+Arsenal FC,ARS,98816,Jurrien Timber,Right-Back,Netherlands,주리엔 목재
+Arsenal FC,ARS,80171,William Saliba,Centre-Back,France,윌리엄 살리바
+Arsenal FC,ARS,61450,Martinelli,Left Winger,Brazil,마르티넬리
+Arsenal FC,ARS,24102,Christian Nørgaard,Defensive Midfield,Denmark,크리스티안 노르가르드
+Arsenal FC,ARS,23128,Gabriel,Centre-Back,Brazil,가브리엘
+Arsenal FC,ARS,8984,Leandro Trossard,Left Winger,Belgium,레안드로 트로사르
+Arsenal FC,ARS,8279,Viktor Gyökeres,Centre-Forward,Sweden,빅토르 교케레스
+Arsenal FC,ARS,8215,Declan Rice,Central Midfield,England,데클란 라이스
+Arsenal FC,ARS,7935,Mikel Merino,Central Midfield,Spain,미켈 메리노
+Arsenal FC,ARS,7427,Martin Ødegaard,Attacking Midfield,Norway,마르틴 외데가르드
+Arsenal FC,ARS,6154,Ben White,Right-Back,England,벤 화이트
+Arsenal FC,ARS,4032,Eberechi Eze,Attacking Midfield,England,에베레치 에제
+Arsenal FC,ARS,3236,Gabriel Jesus,Centre-Forward,Brazil,가브리엘 예수
+Arsenal FC,ARS,171,Kai Havertz,Centre-Forward,Germany,카이 하베르츠
+Aston Villa FC,AVL,3141,Emiliano Martínez,Goalkeeper,Argentina,에밀리아노 마르티네스
+Aston Villa FC,AVL,7675,Marco Bizot,Goalkeeper,Netherlands,마르코 비조
+Aston Villa FC,AVL,204460,James Wright,Goalkeeper,England,제임스 라이트
+Aston Villa FC,AVL,244962,Sam Proctor,Goalkeeper,England,샘 프록터
+Aston Villa FC,AVL,286821,Russ Oakley,Goalkeeper,England,러스 오클리
+Aston Villa FC,AVL,270628,Ben Broggio,Midfield,England,벤 브로지오
+Aston Villa FC,AVL,270631,Aidan Borland,Midfield,Scotland,에이단 볼랜드
+Aston Villa FC,AVL,270633,Jamaldeen Jimoh,Midfield,England,자말딘 지모
+Aston Villa FC,AVL,274024,Bradley Burrowes,Midfield,England,브래들리 버로우스
+Aston Villa FC,AVL,33109,Pau Torres,Centre-Back,Spain,파우 토레스
+Aston Villa FC,AVL,31941,Emiliano Buendía,Attacking Midfield,Argentina,에밀리아노 부엔디아
+Aston Villa FC,AVL,11644,Matty Cash,Right-Back,Poland,매티 캐시
+Aston Villa FC,AVL,8346,Boubacar Kamara,Defensive Midfield,France,부바카르 카마라
+Aston Villa FC,AVL,8235,Tyrone Mings,Centre-Back,England,타이론 밍스
+Aston Villa FC,AVL,7817,Ross Barkley,Central Midfield,England,로스 바클리
+Aston Villa FC,AVL,7457,Donyell Malen,Right Winger,Netherlands,도넬 말렌
+Aston Villa FC,AVL,6317,Ezri Konsa,Centre-Back,England,에즈리 콘사
+Aston Villa FC,AVL,4444,Ollie Watkins,Centre-Forward,England,올리 왓킨스
+Aston Villa FC,AVL,3658,Youri Tielemans,Central Midfield,Belgium,유리 틸레만스
+Aston Villa FC,AVL,3492,Victor Nilsson-Lindelöf,Centre-Back,Sweden,빅터 닐슨-린델뢰프
+Aston Villa FC,AVL,3359,Lucas Digne,Left-Back,France,루카스 디그네
+Aston Villa FC,AVL,146,Jadon Sancho,Left Winger,England,제이든 산초
+Aston Villa FC,AVL,204428,Travis Patterson,Left-Back,England,트래비스 패터슨
+Aston Villa FC,AVL,203594,Andrés Garcia,Right-Back,Spain,안드레스 가르시아
+Aston Villa FC,AVL,172899,Lamare Bogarde,Defensive Midfield,Netherlands,라마레 보가드
+Aston Villa FC,AVL,131120,Ian Maatsen,Left-Back,Netherlands,이안 마트센
+Aston Villa FC,AVL,128710,Evann Guessand,Centre-Forward,France,에반 게산드
+Aston Villa FC,AVL,124824,Harvey Elliott,Central Midfield,England,하비 엘리엇
+Aston Villa FC,AVL,114024,Amadou Onana,Defensive Midfield,Belgium,아마두 오나나
+Aston Villa FC,AVL,82140,Morgan Rogers,Attacking Midfield,England,모건 로저스
+Aston Villa FC,AVL,34646,John McGinn,Central Midfield,Scotland,존 맥긴
+Chelsea FC,CHE,135555,Robert Sánchez,Goalkeeper,Spain,로버트 산체스
+Chelsea FC,CHE,137544,Gabriel Slonina,Goalkeeper,USA,가브리엘 슬로니나
+Chelsea FC,CHE,153828,Filip Jörgensen,Goalkeeper,Denmark,필립 요르겐센
+Chelsea FC,CHE,246715,Max Merrick,Goalkeeper,England,맥스 메릭
+Chelsea FC,CHE,246743,Ted Curd,Goalkeeper,England,테드 커드
+Chelsea FC,CHE,277888,Landon Emenalo,Defence,USA,랜던 에메날로
+Chelsea FC,CHE,276866,Reggie Walsh,Midfield,England,레지 월시
+Chelsea FC,CHE,244778,Estevao,Offence,Brazil,에스테바오
+Chelsea FC,CHE,272058,Shumaira Mheuka,Offence,England,슈마이라 메우카
+Chelsea FC,CHE,165314,Dario Essugo,Defensive Midfield,Portugal,다리오 에쑤고
+Chelsea FC,CHE,152498,Malo Gusto,Right-Back,France,말로 구스토
+Chelsea FC,CHE,151095,Liam Delap,Centre-Forward,England,리암 델랩
+Chelsea FC,CHE,144892,Cole Palmer,Attacking Midfield,England,콜 팔머
+Chelsea FC,CHE,121103,Moisés Caicedo,Defensive Midfield,Ecuador,모이세스 카이세도
+Chelsea FC,CHE,103125,João Pedro,Centre-Forward,Brazil,주앙 페드로
+Chelsea FC,CHE,102603,Enzo Fernández,Central Midfield,Argentina,엔조 페르난데스
+Chelsea FC,CHE,98978,Mykhailo Mudryk,Left Winger,Ukraine,미카일로 무드릭
+Chelsea FC,CHE,56628,Reece James,Right-Back,England,리스 제임스
+Chelsea FC,CHE,15863,Cucurella,Left-Back,Spain,쿠쿠렐라
+Chelsea FC,CHE,8545,Wesley Fofana,Centre-Back,France,웨슬리 포파나
+Chelsea FC,CHE,7880,Tosin Adarabioyo,Centre-Back,England,토신 아다라비오요
+Chelsea FC,CHE,7810,Trevoh Chalobah,Centre-Back,England,트레보 찰로바
+Chelsea FC,CHE,3329,Raheem Sterling,Right Winger,England,라힘 스털링
+Chelsea FC,CHE,2074,Pedro Neto,Right Winger,Portugal,페드로 네토
+Chelsea FC,CHE,813,Axel Disasi,Centre-Back,France,악셀 디사시
+Chelsea FC,CHE,250436,Tyrique George,Left Winger,England,티리크 조지
+Chelsea FC,CHE,249320,Josh Acheampong,Right-Back,England,조쉬 아챔퐁
+Chelsea FC,CHE,247243,Ollie Harrison,Defensive Midfield,England,올리 해리슨
+Chelsea FC,CHE,207109,Marc Guiu,Centre-Forward,Spain,마크 구이우
+Chelsea FC,CHE,189477,Jorrel Hato,Centre-Back,Netherlands,조렐 하토
+Chelsea FC,CHE,184273,Facundo Buonanotte,Attacking Midfield,Argentina,파쿤도 부오나노테
+Chelsea FC,CHE,181901,Alejandro Garnacho,Left Winger,Argentina,알레한드로 가르나초
+Chelsea FC,CHE,179460,Jamie Bynoe-Gittens,Left Winger,England,제이미 바이노-기튼스
+Chelsea FC,CHE,172738,Romeo Lavia,Defensive Midfield,Belgium,로미오 라비아
+Chelsea FC,CHE,170440,Levi Colwill,Centre-Back,England,레비 콜윌
+Chelsea FC,CHE,170426,Benoît Badiashile,Centre-Back,France,베누아 바디아쉴레
+Chelsea FC,CHE,166366,Andrey Santos,Central Midfield,Brazil,안드레이 산토스
+Everton FC,EVE,3309,Jordan Pickford,Goalkeeper,England,조던 픽포드
+Everton FC,EVE,6180,Thomas King,Goalkeeper,Wales,토마스 킹
+Everton FC,EVE,82135,Mark Travers,Goalkeeper,Ireland,마크 트래버스
+Everton FC,EVE,160451,Harry Tyrer,Goalkeeper,England,해리 타이러
+Everton FC,EVE,246476,Adam Aznou,Left-Back,Morocco,아담 아즈누
+Everton FC,EVE,244819,Elijah Campbell,Centre-Back,England,엘리야 캠벨
+Everton FC,EVE,218525,Tyler Dibling,Right Winger,England,타일러 디블링
+Everton FC,EVE,171995,Thierno Barry,Centre-Forward,France,티에르노 배리
+Everton FC,EVE,169326,Tim Iroegbunam,Central Midfield,England,팀 이로그부남
+Everton FC,EVE,156552,Merlin Röhl,Central Midfield,Germany,멀린 뢰흘
+Everton FC,EVE,140269,Carlos Alcaraz,Central Midfield,Argentina,카를로스 알카라즈
+Everton FC,EVE,140194,Kiernan Dewsbury Hall,Central Midfield,England,키에넌 듀스버리 홀
+Everton FC,EVE,138174,Nathan Patterson,Right-Back,Scotland,네이선 패터슨
+Everton FC,EVE,131569,Jake O'Brien,Centre-Back,Ireland,제이크 오브라이언
+Everton FC,EVE,125044,Beto,Centre-Forward,Portugal,베토
+Everton FC,EVE,114120,Jarrad Branthwaite,Centre-Back,England,자라드 브랜스웨이트
+Everton FC,EVE,101076,James Garner,Defensive Midfield,England,제임스 가너
+Everton FC,EVE,94091,Iliman Ndiaye,Left Winger,Senegal,일리만 은디아예
+Everton FC,EVE,16165,Vitalii Mykolenko,Left-Back,Ukraine,비탈리 미콜렌코
+Everton FC,EVE,11623,Dwight McNeil,Attacking Midfield,England,드와이트 맥닐
+Everton FC,EVE,7836,Séamus Coleman,Right-Back,Ireland,시무스 콜먼
+Everton FC,EVE,7829,Michael Keane,Centre-Back,England,마이클 킨
+Everton FC,EVE,3895,Jack Grealish,Left Winger,England,잭 그릴리쉬
+Everton FC,EVE,3627,Idrissa Gana Guèye,Central Midfield,Senegal,이드리사 가나 게예
+Everton FC,EVE,3316,James Tarkowski,Centre-Back,England,제임스 타코스키
+Fulham FC,FUL,3174,Bernd Leno,Goalkeeper,Germany,베른트 레노
+Fulham FC,FUL,8366,Benjamin Lecomte,Goalkeeper,France,벤저민 르콤테
+Fulham FC,FUL,179122,Kevin Santos,Offence,Brazil,케빈 산토스
+Fulham FC,FUL,217577,Jonah Kusi-Asare,Offence,Sweden,조나 쿠시-아사레
+Fulham FC,FUL,246418,Joshua King,Central Midfield,England,조슈아 킹
+Fulham FC,FUL,146154,Calvin Bassey,Centre-Back,Nigeria,캘빈 배시
+Fulham FC,FUL,138036,Rodrigo Muniz,Centre-Forward,Brazil,로드리고 무니스
+Fulham FC,FUL,98750,Jorge Cuenca,Centre-Back,Spain,호르헤 쿠엥카
+Fulham FC,FUL,85570,Emile Smith Rowe,Attacking Midfield,England,에밀 스미스 로우
+Fulham FC,FUL,33124,Samuel Chukwueze,Right Winger,Nigeria,사무엘 추쿠에제
+Fulham FC,FUL,32938,Saša Lukić,Central Midfield,Serbia,사샤 루키치
+Fulham FC,FUL,11777,Harry Wilson,Right Winger,Wales,해리 윌슨
+Fulham FC,FUL,8973,Sander Berge,Defensive Midfield,Norway,샌더 베르게
+Fulham FC,FUL,8460,Kenny Tete,Right-Back,Netherlands,케니 테테
+Fulham FC,FUL,8296,Issa Diop,Centre-Back,France,이사 디오프
+Fulham FC,FUL,4221,Adama Traoré,Right Winger,Spain,아다마 트라오레
+Fulham FC,FUL,3995,Harrison Reed,Central Midfield,England,해리슨 리드
+Fulham FC,FUL,3965,Tom Cairney,Central Midfield,England,톰 케니
+Fulham FC,FUL,3959,Ryan Sessegnon,Left-Back,England,라이언 세세뇽
+Fulham FC,FUL,3927,Antonee Robinson,Left-Back,USA,안토니 로빈슨
+Fulham FC,FUL,3392,Alex Iwobi,Left Winger,Nigeria,알렉스 이워비
+Fulham FC,FUL,3305,Raúl Jiménez,Centre-Forward,Mexico,라울 히메네스
+Fulham FC,FUL,2253,Joachim Andersen,Centre-Back,Denmark,요아킴 안데르센
+Fulham FC,FUL,1836,Timothy Castagne,Right-Back,Belgium,티모시 카스타뉴
+Liverpool FC,LIV,1795,Alisson,Goalkeeper,Brazil,알리송
+Liverpool FC,LIV,11629,Freddie Woodman,Goalkeeper,England,프레디 우드먼
+Liverpool FC,LIV,84506,Giorgi Mamardashvili,Goalkeeper,Georgia,조르기 마마르다시빌리
+Liverpool FC,LIV,182236,Armin Pecsi,Goalkeeper,Hungary,아르민 페치
+Liverpool FC,LIV,186701,Stefan Bajcetic,Defence,Spain,스테판 바이케티치
+Liverpool FC,LIV,274726,Kieran Morrison,Midfield,Northern Ireland,키어런 모리슨
+Liverpool FC,LIV,286622,Tommy Pilling,Midfield,England,토미 필링
+Liverpool FC,LIV,273453,Rio Ngumoha,Offence,England,리오 응구모하
+Liverpool FC,LIV,81793,Ryan Gravenberch,Defensive Midfield,Netherlands,라이언 그라벤버치
+Liverpool FC,LIV,45681,Alexis Mac Allister,Central Midfield,Argentina,알렉시스 맥 알리스터
+Liverpool FC,LIV,19334,Florian Wirtz,Attacking Midfield,Germany,플로리안 비르츠
+Liverpool FC,LIV,16347,Dominik Szoboszlai,Central Midfield,Hungary,도미닉 쇼보슬라이
+Liverpool FC,LIV,9542,Ibrahima Konaté,Centre-Back,France,이브라히마 코나테
+Liverpool FC,LIV,7873,Curtis Jones,Central Midfield,England,커티스 존스
+Liverpool FC,LIV,7869,Virgil van Dijk,Centre-Back,Netherlands,버질 반 다이크
+Liverpool FC,LIV,7868,Andrew Robertson,Left-Back,Scotland,앤드류 로버트슨
+Liverpool FC,LIV,7862,Joe Gomez,Centre-Back,England,조 고메즈
+Liverpool FC,LIV,7459,Cody Gakpo,Left Winger,Netherlands,코디 각포
+Liverpool FC,LIV,6486,Alexander Isak,Centre-Forward,Sweden,알렉산더 이삭
+Liverpool FC,LIV,3754,Mohamed Salah,Right Winger,Egypt,모하메드 살라
+Liverpool FC,LIV,3269,Wataru Endō,Defensive Midfield,Japan,엔도 와타루
+Liverpool FC,LIV,1780,Federico Chiesa,Right Winger,Italy,페데리코 키에사
+Liverpool FC,LIV,247657,Jayden Danns,Centre-Forward,England,제이든 단스
+Liverpool FC,LIV,230517,Trey Nyoni,Attacking Midfield,England,트레이 뇨니
+Liverpool FC,LIV,192563,Giovanni Leoni,Centre-Back,Italy,조반니 레오니
+Liverpool FC,LIV,175865,Conor Bradley,Right-Back,Northern Ireland,코너 브래들리
+Liverpool FC,LIV,171141,Milos Kerkez,Left-Back,Hungary,밀로스 케르케즈
+Liverpool FC,LIV,157176,Kaide Gordon,Right Winger,England,케이드 고든
+Liverpool FC,LIV,152454,Hugo Ekitike,Centre-Forward,France,휴고 에키티케
+Liverpool FC,LIV,135636,Rhys Williams,Centre-Back,England,리스 윌리엄스
+Liverpool FC,LIV,128954,Jeremie Frimpong,Right Midfield,Netherlands,제레미 프림퐁
+Liverpool FC,LIV,124778,Calvin Ramsay,Right-Back,Scotland,캘빈 램지
+Manchester City FC,MCI,1731,Gianluigi Donnarumma,Goalkeeper,Italy,잔루이지 돈나룸마
+Manchester City FC,MCI,3953,Marcus Bettinelli,Goalkeeper,England,마커스 베티넬리
+Manchester City FC,MCI,6958,Stefan Ortega Moreno,Goalkeeper,Germany,스테판 오르테가 모레노
+Manchester City FC,MCI,153874,James Trafford,Goalkeeper,England,제임스 트래포드
+Manchester City FC,MCI,270613,Kaden Braithwaite,Defence,England,카덴 브레이스웨이트
+Manchester City FC,MCI,286320,Stephen Mfuni,Defence,England,스티븐 음푸니
+Manchester City FC,MCI,206743,Nico O'Reilly,Midfield,England,니코 오라일리
+Manchester City FC,MCI,286321,Divine Mukasa,Midfield,England,디바인 무카사
+Manchester City FC,MCI,286950,Ryan McAidoo,Midfield,England,라이언 맥에이두
+Manchester City FC,MCI,286773,Jaden Heskey,Offence,England,제이든 헤스키
+Manchester City FC,MCI,286775,Reigan Heskey,Offence,England,레이건 헤스키
+Manchester City FC,MCI,91512,Matheus Nunes,Central Midfield,Portugal,마테우스 누네스
+Manchester City FC,MCI,66896,Omar Marmoush,Centre-Forward,Egypt,오마르 마모쉬
+Manchester City FC,MCI,38101,Erling Haaland,Centre-Forward,Norway,에를링 홀란드
+Manchester City FC,MCI,10183,Rúben Dias,Centre-Back,Portugal,루벤 디아스
+Manchester City FC,MCI,8642,Rayan Aït Nouri,Left-Back,Algeria,라얀 아이트 누리
+Manchester City FC,MCI,8240,Nathan Aké,Centre-Back,Netherlands,네이선 아케
+Manchester City FC,MCI,7888,Phil Foden,Right Winger,England,필 포덴
+Manchester City FC,MCI,7696,Tijjani Reijnders,Central Midfield,Netherlands,티자니 레인더스
+Manchester City FC,MCI,4147,Kalvin Phillips,Defensive Midfield,England,캘빈 필립스
+Manchester City FC,MCI,3313,John Stones,Centre-Back,England,존 스톤스
+Manchester City FC,MCI,3254,Bernardo Silva,Attacking Midfield,Portugal,베르나르도 실바
+Manchester City FC,MCI,3199,Rodri,Defensive Midfield,Spain,로드리
+Manchester City FC,MCI,65,Mateo Kovačić,Central Midfield,Croatia,마테오 코바치치
+Manchester City FC,MCI,212868,Abdukodir Khusanov,Centre-Back,Uzbekistan,압두코디르 쿠사노프
+Manchester City FC,MCI,187202,Rico Lewis,Right-Back,England,리코 루이스
+Manchester City FC,MCI,179716,Oscar Bobb,Right Winger,Norway,오스카 밥
+Manchester City FC,MCI,171986,Nico Gonzalez,Central Midfield,Spain,니코 곤잘레스
+Manchester City FC,MCI,146352,Sávio,Right Winger,Brazil,사비오
+Manchester City FC,MCI,133242,Rayan Cherki,Attacking Midfield,France,라얀 체르키
+Manchester City FC,MCI,122266,Joško Gvardiol,Left-Back,Croatia,요스코 그바르디올
+Manchester City FC,MCI,99775,Jeremy Doku,Left Winger,Belgium,제레미 도쿠
+Manchester United FC,MUN,8035,Tom Heaton,Goalkeeper,England,톰 히튼
+Manchester United FC,MUN,29518,Altay Bayındır,Goalkeeper,Turkey,알타이 바인디르
+Manchester United FC,MUN,129946,Senne Lammens,Goalkeeper,Belgium,센느 라멘스
+Manchester United FC,MUN,188291,Tyler Fredricson,Defence,England,타일러 프레드릭슨
+Manchester United FC,MUN,262921,Diego León,Defence,Paraguay,디에고 레온
+Manchester United FC,MUN,275522,Chido Obi-Martin,Offence,Denmark,치도 오비마틴
+Manchester United FC,MUN,247644,Ayden Heaven,Centre-Back,England,에이든 천국
+Manchester United FC,MUN,211559,Patrick Dorgu,Left-Back,Denmark,패트릭 도르구
+Manchester United FC,MUN,190797,Kobbie Mainoo,Central Midfield,England,코비 마이누
+Manchester United FC,MUN,181933,Leny Yoro,Centre-Back,France,레니 요로
+Manchester United FC,MUN,133584,Amad Diallo,Right Winger,Ivory Coast,아마드 디알로
+Manchester United FC,MUN,124244,Benjamin Šeško,Centre-Forward,Slovenia,벤자민 셰스코
+Manchester United FC,MUN,99731,Joshua Zirkzee,Centre-Forward,Netherlands,조슈아 지르크지
+Manchester United FC,MUN,46451,Lisandro Martínez,Centre-Back,Argentina,리산드로 마르티네스
+Manchester United FC,MUN,30842,Matheus Cunha,Centre-Forward,Brazil,마테우스 쿠냐
+Manchester United FC,MUN,28549,Manuel Ugarte,Defensive Midfield,Uruguay,마누엘 우가르테
+Manchester United FC,MUN,15905,Diogo Dalot,Right-Back,Portugal,디오고 달로트
+Manchester United FC,MUN,8626,Bryan Mbeumo,Right Winger,Cameroon,브라이언 음베우모
+Manchester United FC,MUN,7898,Luke Shaw,Left-Back,England,루크 쇼
+Manchester United FC,MUN,7599,Mason Mount,Attacking Midfield,England,메이슨 마운트
+Manchester United FC,MUN,7553,Noussair Mazraoui,Right-Back,Morocco,누세르 마즈라위
+Manchester United FC,MUN,7549,Matthijs de Ligt,Centre-Back,Netherlands,마티아스 데 리흐트
+Manchester United FC,MUN,7467,Tyrell Malacia,Left-Back,Netherlands,타이렐 말라시아
+Manchester United FC,MUN,3326,Harry Maguire,Centre-Back,England,해리 맥과이어
+Manchester United FC,MUN,3257,Bruno Fernandes,Attacking Midfield,Portugal,브루노 페르난데스
+Manchester United FC,MUN,3231,Casemiro,Defensive Midfield,Brazil,카세미로
+Newcastle United FC,NEW,3310,Nick Pope,Goalkeeper,England,닉 포프
+Newcastle United FC,NEW,5048,Mark Gillespie,Goalkeeper,England,마크 길레스피
+Newcastle United FC,NEW,5530,Aaron Ramsdale,Goalkeeper,England,아론 램즈데일
+Newcastle United FC,NEW,214426,Max Thompson,Goalkeeper,England,맥스 톰슨
+Newcastle United FC,NEW,176852,Lewis Hall,Midfield,England,루이스 홀
+Newcastle United FC,NEW,133547,Nick Woltemade,Offence,Germany,닉 월테메이드
+Newcastle United FC,NEW,283375,Seung-soo Park,Offence,South Korea,박승수
+Newcastle United FC,NEW,230364,Alex Murphy,Left-Back,Ireland,알렉스 머피
+Newcastle United FC,NEW,191939,Lewis Miley,Central Midfield,England,루이스 마일리
+Newcastle United FC,NEW,169324,William Osula,Centre-Forward,Denmark,윌리엄 오술라
+Newcastle United FC,NEW,168712,Valentino Livramento,Right-Back,England,발렌티노 리브라멘토
+Newcastle United FC,NEW,166376,Anthony Elanga,Right Winger,Sweden,앤서니 엘랑가
+Newcastle United FC,NEW,150776,Harrison Ashby,Right-Back,Scotland,해리슨 애쉬비
+Newcastle United FC,NEW,142732,Malick Thiaw,Centre-Back,Germany,말릭 티아우
+Newcastle United FC,NEW,111437,Jacob Ramsey,Left Midfield,England,제이콥 램지
+Newcastle United FC,NEW,81082,Sven Botman,Centre-Back,Netherlands,스벤 보트만
+Newcastle United FC,NEW,10653,Joelinton,Central Midfield,Brazil,조엘린턴
+Newcastle United FC,NEW,8076,Harvey Barnes,Left Winger,England,하비 반스
+Newcastle United FC,NEW,7934,Jacob Murphy,Right Winger,England,제이콥 머피
+Newcastle United FC,NEW,7919,Jamaal Lascelles,Centre-Back,England,자말 라셀레스
+Newcastle United FC,NEW,7848,Anthony Gordon,Left Winger,England,앤서니 고든
+Newcastle United FC,NEW,7798,Joe Willock,Central Midfield,England,조 윌록
+Newcastle United FC,NEW,4870,Dan Burn,Centre-Back,England,댄 번
+Newcastle United FC,NEW,3312,Kieran Trippier,Right-Back,England,키어런 트리피어
+Newcastle United FC,NEW,2563,Sandro Tonali,Central Midfield,Italy,산드로 토날리
+Newcastle United FC,NEW,1868,Emil Krafth,Right-Back,Sweden,에밀 크라프트
+Newcastle United FC,NEW,1684,Bruno Guimarães,Defensive Midfield,Brazil,브루노 기마랑이스
+Newcastle United FC,NEW,612,Yoane Wissa,Centre-Forward,DR Congo,요안 위사
+Newcastle United FC,NEW,88,Fabian Schär,Centre-Back,Switzerland,파비안 셰르
+Sunderland AFC,SUN,4292,Simon Moore,Goalkeeper,England,사이먼 무어
+Sunderland AFC,SUN,97249,Anthony Patterson,Goalkeeper,England,앤서니 패터슨
+Sunderland AFC,SUN,137691,Robin Roefs,Goalkeeper,Netherlands,로빈 로프스
+Sunderland AFC,SUN,145505,Blondy Noukeu,Goalkeeper,Cameroon,블론디 누크
+Sunderland AFC,SUN,8204,Arthur Masuaku,Defence,DR Congo,아서 마수아쿠
+Sunderland AFC,SUN,179695,Leo Hjelde,Defence,Norway,레오 히젤데
+Sunderland AFC,SUN,182273,Noah Sadiki,Defence,Belgium,노아 사디키
+Sunderland AFC,SUN,285390,Jenson Jones,Defence,England,젠슨 존스
+Sunderland AFC,SUN,131135,Jay Matete,Midfield,England,제이 마테테
+Sunderland AFC,SUN,189892,Timur Tuterov,Midfield,Ukraine,티무르 투테로프
+Sunderland AFC,SUN,192313,Chemsdine Talbi,Midfield,Belgium,쳄스딘 탈비
+Sunderland AFC,SUN,249412,Harrison Jones,Midfield,England,해리슨 존스
+Sunderland AFC,SUN,285389,Jaydon Jones,Midfield,England,제이든 존스
+Sunderland AFC,SUN,285392,Jack Whittaker,Midfield,England,잭 휘태커
+Sunderland AFC,SUN,210066,Ben Middlemas,Offence,England,벤 미들마스
+Sunderland AFC,SUN,213255,Ian Poveda,Offence,Colombia,이안 포베다
+Sunderland AFC,SUN,166249,Simon Adingra,Left Winger,Ivory Coast,사이먼 아딩그라
+Sunderland AFC,SUN,165311,Abdoullah Ba,Right Midfield,France,압둘라 바
+Sunderland AFC,SUN,161270,Aji Alese,Centre-Back,England,아지 알레스
+Sunderland AFC,SUN,148288,Timothee Pembele,Right-Back,France,티모시 펨벨레
+Sunderland AFC,SUN,121109,Daniel Ballard,Centre-Back,Northern Ireland,다니엘 발라드
+Sunderland AFC,SUN,117687,Trai Hume,Right-Back,Northern Ireland,트라이 흄
+Sunderland AFC,SUN,99664,Enzo Le Fée,Central Midfield,France,엔초 르 피
+Sunderland AFC,SUN,97535,Brian Brobbey,Centre-Forward,Netherlands,브라이언 브로비
+Sunderland AFC,SUN,83599,Wilson Isidor,Centre-Forward,France,윌슨 이시도르
+Sunderland AFC,SUN,46491,Omar Alderete,Centre-Back,Paraguay,오마르 알데레테
+Sunderland AFC,SUN,37094,Reinildo,Left-Back,Mozambique,레이닐도
+Sunderland AFC,SUN,8467,Bertrand Traoré,Right Winger,Burkina Faso,베르트랑 트라오레
+Sunderland AFC,SUN,8371,Nordi Mukiele,Right-Back,France,노르디 무키엘레
+Sunderland AFC,SUN,7468,Lutsharel Geertruida,Right-Back,Netherlands,루트샤렐 기어트루이다
+Sunderland AFC,SUN,6259,Luke O'Nien,Centre-Back,England,루크 오닌
+Sunderland AFC,SUN,3477,Granit Xhaka,Defensive Midfield,Switzerland,그라니트 자카
+Sunderland AFC,SUN,191889,Ahmed Abdullahi,Centre-Forward,Nigeria,아메드 압둘라히
+Sunderland AFC,SUN,191461,Joseph Anderson,Centre-Back,England,조셉 앤더슨
+Sunderland AFC,SUN,190817,Chris Rigg,Central Midfield,England,크리스 리그
+Sunderland AFC,SUN,178644,Eliezer Mayenda,Centre-Forward,Spain,엘리에제르 마옌다
+Sunderland AFC,SUN,172275,Romaine Mundle,Left Winger,England,로메인 먼들
+Sunderland AFC,SUN,172127,Dan Neil,Central Midfield,England,댄 닐
+Sunderland AFC,SUN,172123,Dennis Cirkin,Left-Back,England,데니스 서킨
+Sunderland AFC,SUN,171876,Habib Diarra,Central Midfield,France,하비브 디아라
+Tottenham Hotspur FC,TOT,3086,Guglielmo Vicario,Goalkeeper,Italy,굴리엘모 비카리오
+Tottenham Hotspur FC,TOT,133229,Brandon Austin,Goalkeeper,England,브랜든 오스틴
+Tottenham Hotspur FC,TOT,255239,Antonín Kinský,Goalkeeper,Czech Republic,안토닌 킨스키
+Tottenham Hotspur FC,TOT,181193,Kota Takai,Defence,Japan,타카이 코타
+Tottenham Hotspur FC,TOT,272980,Malachi Hardy,Defence,England,말라기 하디
+Tottenham Hotspur FC,TOT,283174,Jun'ai Byfield,Defence,England,준아이 바이필드
+Tottenham Hotspur FC,TOT,272688,Callum Olusesi,Midfield,England,칼럼 올루세시
+Tottenham Hotspur FC,TOT,272687,Luca Williams-Barnett,Offence,England,루카 윌리엄스-바넷
+Tottenham Hotspur FC,TOT,286774,Tynan Thompson,Offence,England,타이넌 톰슨
+Tottenham Hotspur FC,TOT,131177,Mickey van de Ven,Centre-Back,Netherlands,미키 반 데 벤
+Tottenham Hotspur FC,TOT,124694,Brennan Johnson,Right Winger,Wales,브레넌 존슨
+Tottenham Hotspur FC,TOT,81037,Pedro Porro,Right-Back,Spain,페드로 포로
+Tottenham Hotspur FC,TOT,80775,Djed Spence,Right-Back,England,디제드 스펜스
+Tottenham Hotspur FC,TOT,77399,Mohammed Kudus,Right Winger,Ghana,모하메드 쿠두스
+Tottenham Hotspur FC,TOT,45735,Christian Romero,Centre-Back,Argentina,크리스티안 로메로
+Tottenham Hotspur FC,TOT,15884,João Palhinha,Defensive Midfield,Portugal,주앙 팔히냐
+Tottenham Hotspur FC,TOT,8708,Randal Kolo Muani,Centre-Forward,France,랜달 콜로 무아니
+Tottenham Hotspur FC,TOT,8410,Yves Bissouma,Defensive Midfield,Mali,이브 비소우마
+Tottenham Hotspur FC,TOT,8133,Richarlison,Centre-Forward,Brazil,히찰리송
+Tottenham Hotspur FC,TOT,7994,Ben Davies,Centre-Back,Wales,벤 데이비스
+Tottenham Hotspur FC,TOT,7878,Dominic Solanke,Centre-Forward,England,도미닉 솔란케
+Tottenham Hotspur FC,TOT,6655,Kevin Danso,Centre-Back,Austria,케빈 단소
+Tottenham Hotspur FC,TOT,3992,James Maddison,Attacking Midfield,England,제임스 매디슨
+Tottenham Hotspur FC,TOT,2041,Rodrigo Bentancur,Defensive Midfield,Uruguay,로드리고 벤탄쿠르
+Tottenham Hotspur FC,TOT,1859,Dejan Kulusevski,Attacking Midfield,Sweden,데얀 쿨루세프스키
+Tottenham Hotspur FC,TOT,193622,Lucas Bergvall,Central Midfield,Sweden,루카스 버그발
+Tottenham Hotspur FC,TOT,184999,Wilson Odobert,Right Winger,France,윌슨 오도베르트
+Tottenham Hotspur FC,TOT,177040,Archie Gray,Right-Back,England,아치 그레이
+Tottenham Hotspur FC,TOT,171977,Mathys Tel,Centre-Forward,France,매티스 전화
+Tottenham Hotspur FC,TOT,170391,Pape Sarr,Central Midfield,Senegal,파페 사르
+Tottenham Hotspur FC,TOT,170378,Destiny Udogie,Left-Back,Italy,데스티니 우도기
+Tottenham Hotspur FC,TOT,156616,Dane Scarlett,Centre-Forward,England,데인 스칼렛
+Tottenham Hotspur FC,TOT,148289,Xavi Simons,Attacking Midfield,Netherlands,사비 시몬스
+Tottenham Hotspur FC,TOT,140432,Radu Drăgușin,Centre-Back,Romania,라두 드라구신
+Wolverhampton Wanderers FC,WOL,3884,Sam Johnstone,Goalkeeper,England,샘 존스톤
+Wolverhampton Wanderers FC,WOL,4418,Daniel Bentley,Goalkeeper,England,다니엘 벤틀리
+Wolverhampton Wanderers FC,WOL,15899,José Sá,Goalkeeper,Portugal,호세 사
+Wolverhampton Wanderers FC,WOL,205467,David Wolfe,Defence,Norway,데이비드 울프
+Wolverhampton Wanderers FC,WOL,22306,Jhon Arias,Midfield,Colombia,존 아리아스
+Wolverhampton Wanderers FC,WOL,272431,Fer López,Midfield,Spain,페르 로페스
+Wolverhampton Wanderers FC,WOL,120981,Toluwalas Arokodare,Offence,Nigeria,톨루왈라세 아로코다레
+Wolverhampton Wanderers FC,WOL,171027,Jackson Tchatchoua,Offence,Cameroon,잭슨 차추아
+Wolverhampton Wanderers FC,WOL,213269,Jørgen Strand Larsen,Offence,Norway,요르겐 스트랜드 라르센
+Wolverhampton Wanderers FC,WOL,193014,Enso Gonzalez,Left Winger,Paraguay,엔소 곤잘레스
+Wolverhampton Wanderers FC,WOL,189575,Nathan Fraser,Centre-Forward,England,네이선 프레이저
+Wolverhampton Wanderers FC,WOL,157709,Hugo Bueno,Left-Back,Spain,휴고 부에노
+Wolverhampton Wanderers FC,WOL,153570,Yerson Mosquera,Centre-Back,Colombia,예르손 모스케라
+Wolverhampton Wanderers FC,WOL,151521,Rodrigo Gomes,Right Midfield,Portugal,로드리고 고메스
+Wolverhampton Wanderers FC,WOL,149731,Emmanuel Agbadou,Centre-Back,Ivory Coast,에마뉘엘 아그바두
+Wolverhampton Wanderers FC,WOL,145538,André,Defensive Midfield,Brazil,앙드레
+Wolverhampton Wanderers FC,WOL,138034,João Gomes,Central Midfield,Brazil,주앙 고메스
+Wolverhampton Wanderers FC,WOL,135345,Tawanda Chirewa,Attacking Midfield,England,타완다 치레와
+Wolverhampton Wanderers FC,WOL,102223,Toti Gomes,Centre-Back,Portugal,토티 고메스
+Wolverhampton Wanderers FC,WOL,102044,Ki-Jana Hoever,Right-Back,Netherlands,키자나 호버
+Wolverhampton Wanderers FC,WOL,62493,Ladislav Krejčí,Centre-Back,Czech Republic,라디슬라프 크레이치
+Wolverhampton Wanderers FC,WOL,34754,Marshall Munetsi,Central Midfield,Zimbabwe,마샬 무네치
+Wolverhampton Wanderers FC,WOL,32767,Santiago Bueno,Centre-Back,Uruguay,산티아고 부에노
+Wolverhampton Wanderers FC,WOL,4081,Matt Doherty,Right-Back,Ireland,매트 도허티
+Wolverhampton Wanderers FC,WOL,3354,Hwang Heechan,Centre-Forward,South Korea,황희찬
+Wolverhampton Wanderers FC,WOL,788,Jean-Ricner Bellegarde,Central Midfield,France,장 리크너 벨가르드
+Burnley FC,BUR,7914,Martin Dúbravka,Goalkeeper,Slovakia,마틴 두브라브카
+Burnley FC,BUR,62651,Václav Hladký,Goalkeeper,Czech Republic,바츨라프 흘라드키
+Burnley FC,BUR,175800,Max Weiss,Goalkeeper,Germany,맥스 와이스
+Burnley FC,BUR,124501,Oliver Sonne,Defence,Denmark,올리버 손
+Burnley FC,BUR,190916,Murray Campbell,Defence,Scotland,머레이 캠벨
+Burnley FC,BUR,285393,Marley Leuluai,Defence,England,말리 루루아이
+Burnley FC,BUR,192680,Enock Agyei,Midfield,Belgium,에녹 아계이
+Burnley FC,BUR,207566,Mike Trésor,Midfield,Belgium,마이크 트레저
+Burnley FC,BUR,213243,Josh Laurent,Midfield,England,조쉬 로랑
+Burnley FC,BUR,285388,Oliver Pimlott,Midfield,England,올리버 핌로트
+Burnley FC,BUR,286640,Ellis Clark,Midfield,Scotland,엘리스 클라크
+Burnley FC,BUR,286650,George Brierley,Midfield,England,조지 브라이어리
+Burnley FC,BUR,122313,Zeki Amdouni,Offence,Switzerland,제키 암두니
+Burnley FC,BUR,176952,Jaydon Banel,Offence,Netherlands,제이든 바넬
+Burnley FC,BUR,286670,Brandon Pouani,Offence,England,브랜든 포우아니
+Burnley FC,BUR,143054,Armando Broja,Centre-Forward,Albania,아르만도 브로야
+Burnley FC,BUR,67893,Zian Flemming,Attacking Midfield,Netherlands,지안 플레밍
+Burnley FC,BUR,37560,Florentino,Defensive Midfield,Portugal,플로렌티노
+Burnley FC,BUR,34760,Lyle Foster,Centre-Forward,South Africa,라일 포스터
+Burnley FC,BUR,31560,Hjalmar Ekdal,Centre-Back,Sweden,얄마르 에크달
+Burnley FC,BUR,11298,Joe Worrall,Centre-Back,England,조 워럴
+Burnley FC,BUR,9405,Jacob Bruun Larsen,Left Winger,Denmark,야콥 브룬 라르센
+Burnley FC,BUR,8845,Hannes Delcroix,Centre-Back,Belgium,하네스 델크로아
+Burnley FC,BUR,8217,Josh Cullen,Defensive Midfield,Ireland,조쉬 컬렌
+Burnley FC,BUR,8054,Ashley Barnes,Centre-Forward,England,애슐리 반스
+Burnley FC,BUR,7980,Connor Roberts,Right-Back,Wales,코너 로버츠
+Burnley FC,BUR,6678,Louis Beyer,Centre-Back,Germany,루이스 베이어
+Burnley FC,BUR,3999,Marcus Edwards,Right Winger,England,마커스 에드워즈
+Burnley FC,BUR,3894,Axel Tuanzebe,Right-Back,DR Congo,악셀 튀앙제베
+Burnley FC,BUR,3311,Kyle Walker,Right-Back,England,카일 워커
+Burnley FC,BUR,190547,Bashir Humphreys,Centre-Back,England,바시르 험프리스
+Burnley FC,BUR,187219,Quilindschy Hartman,Left-Back,Netherlands,퀼린치 하트만
+Burnley FC,BUR,177627,Lucas Pires,Left-Back,Brazil,루카스 피레스
+Burnley FC,BUR,175784,Maxime Estève,Centre-Back,France,막심 에스테브
+Burnley FC,BUR,170394,Loum Tchaouna,Right Winger,France,루움 차우나
+Burnley FC,BUR,169325,Hannibal Mejbri,Attacking Midfield,Tunisia,한니발 메즈브리
+Burnley FC,BUR,153555,Chimuanya Ugochukwu,Defensive Midfield,France,치무안야 우고추쿠우
+Burnley FC,BUR,150778,Jaidon Anthony,Left Winger,England,제이든 앤서니
+Leeds United FC,LEE,1331,Lucas Perri,Goalkeeper,Brazil,루카스 페리
+Leeds United FC,LEE,5315,Alex Cairns,Goalkeeper,England,알렉스 케언즈
+Leeds United FC,LEE,7913,Karl Darlow,Goalkeeper,Wales,칼 달로우
+Leeds United FC,LEE,74831,Illan Meslier,Goalkeeper,France,일란 메슬리어
+Leeds United FC,LEE,277983,Harry Gray,Offence,England,해리 그레이
+Leeds United FC,LEE,180813,Wilfried Gnonto,Right Winger,Italy,윌프리드 그논토
+Leeds United FC,LEE,113262,Brenden Aaronson,Attacking Midfield,USA,브렌든 아론슨
+Leeds United FC,LEE,75284,Ilia Gruev,Defensive Midfield,Bulgaria,일리아 그루예프
+Leeds United FC,LEE,74688,Jaka Bijol,Centre-Back,Slovenia,자카 비졸
+Leeds United FC,LEE,67978,Joël Piroe,Attacking Midfield,Netherlands,조엘 피로에
+Leeds United FC,LEE,65843,Anton Stach,Central Midfield,Germany,안톤 스타크
+Leeds United FC,LEE,49105,Ao Tanaka,Central Midfield,Japan,다나카 아오
+Leeds United FC,LEE,31531,Gabriel Gudmundsson,Left-Back,Sweden,가브리엘 구드문드손
+Leeds United FC,LEE,16058,Noah Okafor,Left Winger,Switzerland,노아 오카포
+Leeds United FC,LEE,8847,Sebastiaan Bornauw,Centre-Back,Belgium,세바스티안 보르나우
+Leeds United FC,LEE,8203,Sam Byram,Right-Back,England,샘 바이람
+Leeds United FC,LEE,7974,Daniel James,Right Winger,Wales,다니엘 제임스
+Leeds United FC,LEE,7892,Lukas Nmecha,Centre-Forward,Germany,루카스 은메차
+Leeds United FC,LEE,7839,Dominic Calvert-Lewin,Centre-Forward,England,도미닉 칼버트-르윈
+Leeds United FC,LEE,7815,Ethan Ampadu,Defensive Midfield,Wales,에단 암파두
+Leeds United FC,LEE,5714,Joe Rodon,Centre-Back,Wales,조 로돈
+Leeds United FC,LEE,5613,James Justin,Right-Back,England,제임스 저스틴
+Leeds United FC,LEE,4955,Sean Longstaff,Central Midfield,England,션 롱스태프
+Leeds United FC,LEE,4220,Jack Harrison,Right Winger,England,잭 해리슨
+Leeds United FC,LEE,4184,Jayden Bogle,Right-Back,England,제이든 보글
+Leeds United FC,LEE,4146,Pascal Struijk,Centre-Back,Netherlands,파스칼 스트루익
+Nottingham Forest FC,NOT,1299,John,Goalkeeper,Brazil,남자
+Nottingham Forest FC,NOT,3643,Matz Sels,Goalkeeper,Belgium,마츠 셀스
+Nottingham Forest FC,NOT,3981,Angus Gunn,Goalkeeper,Scotland,앵거스 건
+Nottingham Forest FC,NOT,179782,Jair Paula,Defence,Brazil,자이르 파울라
+Nottingham Forest FC,NOT,256339,Igor Jesus,Offence,Brazil,이고르 예수
+Nottingham Forest FC,NOT,204483,Zach Abbott,Centre-Back,England,잭 애보트
+Nottingham Forest FC,NOT,192637,Murillo,Centre-Back,Brazil,무리요
+Nottingham Forest FC,NOT,191730,Nicolò Savona,Right-Back,Italy,니콜로 사보나
+Nottingham Forest FC,NOT,177477,Omari Hutchinson,Attacking Midfield,England,오마리 허친슨
+Nottingham Forest FC,NOT,172956,James McAtee,Attacking Midfield,England,제임스 맥아티
+Nottingham Forest FC,NOT,151295,Dilane Bakwa,Right Winger,France,딜란 바크와
+Nottingham Forest FC,NOT,133765,Neco Williams,Right-Back,Wales,네코 윌리엄스
+Nottingham Forest FC,NOT,130668,Arnaud Kalimuendo,Centre-Forward,France,아르노 칼리무엔도
+Nottingham Forest FC,NOT,119596,Morato,Centre-Back,Brazil,모라토
+Nottingham Forest FC,NOT,107330,Elliot Anderson,Central Midfield,England,엘리엇 앤더슨
+Nottingham Forest FC,NOT,77641,Dan Ndoye,Right Winger,Switzerland,단 은도예
+Nottingham Forest FC,NOT,46346,Nicolás Domínguez,Central Midfield,Argentina,니콜라스 도밍게스
+Nottingham Forest FC,NOT,33525,Douglas Luiz,Central Midfield,Brazil,더글라스 루이스
+Nottingham Forest FC,NOT,9218,Taiwo Awoniyi,Centre-Forward,Nigeria,타이워 아워니이
+Nottingham Forest FC,NOT,8307,Ibrahim Sangaré,Defensive Midfield,Ivory Coast,이브라힘 상가레
+Nottingham Forest FC,NOT,8057,Chris Wood,Centre-Forward,New Zealand,크리스 우드
+Nottingham Forest FC,NOT,7889,Oleksandr Zinchenko,Left-Back,Ukraine,올렉산드르 진첸코
+Nottingham Forest FC,NOT,7816,Callum Hudson-Odoi,Left Winger,England,칼럼 허드슨-오도이
+Nottingham Forest FC,NOT,5435,Ryan Yates,Central Midfield,England,라이언 예이츠
+Nottingham Forest FC,NOT,4091,Morgan Gibbs-White,Attacking Midfield,England,모건 깁스-화이트
+Nottingham Forest FC,NOT,4086,Willy Boly,Centre-Back,Ivory Coast,윌리 볼리
+Nottingham Forest FC,NOT,3386,Ola Aina,Right-Back,Nigeria,올라 아이나
+Nottingham Forest FC,NOT,1775,Nikola Milenković,Centre-Back,Serbia,니콜라 밀렌코비치
+Crystal Palace FC,CRY,5457,Dean Henderson,Goalkeeper,England,딘 헨더슨
+Crystal Palace FC,CRY,6413,Remi Matthews,Goalkeeper,England,레미 매튜스
+Crystal Palace FC,CRY,8420,Walter Benítez,Goalkeeper,Argentina,월터 베니테스
+Crystal Palace FC,CRY,260271,Jaydee Canvot,Defence,France,제이디 캔보트
+Crystal Palace FC,CRY,278973,Rio Cardines,Defence,Trinidad & Tobago,리오 카르디네스
+Crystal Palace FC,CRY,180389,Adam Wharton,Midfield,England,아담 와튼
+Crystal Palace FC,CRY,180081,Yeremy,Offence,Spain,예레미
+Crystal Palace FC,CRY,270859,Caleb Kporha,Right-Back,England,칼렙 크포르하
+Crystal Palace FC,CRY,260763,Chrisantus,Attacking Midfield,Nigeria,크리산투스
+Crystal Palace FC,CRY,190550,Romain Esse,Attacking Midfield,England,로맹 에세
+Crystal Palace FC,CRY,187401,Kaden Rodney,Defensive Midfield,England,카덴 로드니
+Crystal Palace FC,CRY,152149,Justin Devenny,Central Midfield,Northern Ireland,저스틴 데비니
+Crystal Palace FC,CRY,150948,Chadi Riad,Centre-Back,Morocco,차디 리아드
+Crystal Palace FC,CRY,137068,Tyrick Mitchell,Left-Back,England,타이릭 미첼
+Crystal Palace FC,CRY,131752,Naouirou Ahamada,Central Midfield,France,나오이로 아마마다
+Crystal Palace FC,CRY,118489,Marc Guéhi,Centre-Back,England,마크 구에히
+Crystal Palace FC,CRY,99856,Chris Richards,Centre-Back,USA,크리스 리차즈
+Crystal Palace FC,CRY,82351,Maxence Lacroix,Centre-Back,France,막상스 라크로아
+Crystal Palace FC,CRY,74677,Cheick Doucouré,Defensive Midfield,Mali,체크 두쿠레
+Crystal Palace FC,CRY,22010,Daniel Muñoz,Right-Back,Colombia,다니엘 무뇨스
+Crystal Palace FC,CRY,10208,Borna Sosa,Left Midfield,Croatia,보르나 소사
+Crystal Palace FC,CRY,8124,Will Hughes,Central Midfield,England,윌 휴즈
+Crystal Palace FC,CRY,7863,Nathaniel Clyne,Right-Back,England,너다니엘 클라인
+Crystal Palace FC,CRY,7800,Eddie Nketiah,Centre-Forward,England,에디 은케티아
+Crystal Palace FC,CRY,6716,Daichi Kamada,Attacking Midfield,Japan,카마다 다이치
+Crystal Palace FC,CRY,3737,Jefferson Lerma,Defensive Midfield,Colombia,제퍼슨 레르마
+Crystal Palace FC,CRY,3638,Ismaïla Sarr,Right Winger,Senegal,이스마일라 사르
+Crystal Palace FC,CRY,641,Jean-Philippe Mateta,Centre-Forward,France,장 필립 마테타
+Brighton & Hove Albion FC,BHA,4040,Jason Steele,Goalkeeper,England,제이슨 스틸
+Brighton & Hove Albion FC,BHA,126870,Bart Verbruggen,Goalkeeper,Netherlands,바르트 베르브루겐
+Brighton & Hove Albion FC,BHA,140203,Thomas McGill,Goalkeeper,England,토마스 맥길
+Brighton & Hove Albion FC,BHA,142075,Maxim De Cuyper,Defence,Belgium,막심 드 쿠이퍼
+Brighton & Hove Albion FC,BHA,277479,Charlie Tasker,Defence,England,찰리 태스커
+Brighton & Hove Albion FC,BHA,277783,Freddie Simmonds,Defence,England,프레디 시몬즈
+Brighton & Hove Albion FC,BHA,190925,Tom Watson,Midfield,England,톰 왓슨
+Brighton & Hove Albion FC,BHA,287852,Nehemiah Oriola,Midfield,England,느헤미야 오리올라
+Brighton & Hove Albion FC,BHA,264300,Charalampos Kostoulas,Offence,Greece,차랄람포스 코스툴라스
+Brighton & Hove Albion FC,BHA,277782,Harry Howell,Offence,England,해리 하웰
+Brighton & Hove Albion FC,BHA,209504,Stefanos Tzimas,Centre-Forward,Greece,스테파노스 치마스
+Brighton & Hove Albion FC,BHA,191102,Brajan Gruda,Right Winger,Germany,브라잔 그루다
+Brighton & Hove Albion FC,BHA,190851,Jack Hinshelwood,Central Midfield,England,잭 힌셸우드
+Brighton & Hove Albion FC,BHA,187482,Yankubah Minteh,Right Winger,Gambia,양쿠바 민테
+Brighton & Hove Albion FC,BHA,178951,Diego Gómez,Central Midfield,Paraguay,디에고 고메즈
+Brighton & Hove Albion FC,BHA,178604,Carlos Baleba,Defensive Midfield,Cameroon,카를로스 발레바
+Brighton & Hove Albion FC,BHA,176720,Diego Coppola,Centre-Back,Italy,디에고 코폴라
+Brighton & Hove Albion FC,BHA,161365,Solly March,Right Winger,England,솔리 마치
+Brighton & Hove Albion FC,BHA,145613,Yasin Ayari,Central Midfield,Sweden,야신 아야리
+Brighton & Hove Albion FC,BHA,132707,Kaoru Mitoma,Left Winger,Japan,미토마 카오루
+Brighton & Hove Albion FC,BHA,98566,Jan Paul van Hecke,Centre-Back,Netherlands,얀 폴 반 헤케
+Brighton & Hove Albion FC,BHA,97505,Mats Wieffer,Defensive Midfield,Netherlands,매츠 위퍼
+Brighton & Hove Albion FC,BHA,81189,Georginio Rutter,Centre-Forward,France,조르지니오 루터
+Brighton & Hove Albion FC,BHA,9869,Ferdi Kadıoğlu,Left-Back,Turkey,페르디 카디오글루
+Brighton & Hove Albion FC,BHA,8259,Lewis Dunk,Centre-Back,England,루이스 덩크
+Brighton & Hove Albion FC,BHA,7861,James Milner,Central Midfield,England,제임스 밀너
+Brighton & Hove Albion FC,BHA,7547,Joël Veltman,Right-Back,Netherlands,조엘 벨트만
+Brighton & Hove Albion FC,BHA,4228,Adam Webster,Centre-Back,England,아담 웹스터
+Brighton & Hove Albion FC,BHA,3328,Danny Welbeck,Centre-Forward,England,대니 웰벡
+Brighton & Hove Albion FC,BHA,846,Olivier Boscagli,Centre-Back,France,올리비에 보스카글리
+Brentford FC,BRE,4419,Ellery Balcombe,Goalkeeper,England,엘러리 발컴
+Brentford FC,BRE,102046,Caoimhin Kelleher,Goalkeeper,Ireland,카오임힌 켈러허
+Brentford FC,BRE,144530,Hákon Rafn Valdimarsson,Goalkeeper,Iceland,하콘 라픈 발디마르손
+Brentford FC,BRE,150464,Matthew Cox,Goalkeeper,England,매튜 콕스
+Brentford FC,BRE,274963,Julian Eyestone,Goalkeeper,USA,줄리안 아이스톤
+Brentford FC,BRE,191077,Romelle Donovan,Midfield,England,로멜 도노반
+Brentford FC,BRE,175994,Thiago Rodrigues,Offence,Brazil,티아고 로드리게스
+Brentford FC,BRE,138015,Edmond-Paris Maghoma,Central Midfield,England,에드몬드-파리 마호마
+Brentford FC,BRE,123286,Kevin Schade,Left Winger,Germany,케빈 셰이드
+Brentford FC,BRE,115642,Nathan Collins,Centre-Back,Ireland,네이선 콜린스
+Brentford FC,BRE,101910,Keane Lewis-Potter,Left Winger,England,킨 루이스-포터
+Brentford FC,BRE,101111,Aaron Hickey,Right-Back,Scotland,아론 히키
+Brentford FC,BRE,24238,Mikkel Damsgaard,Left Winger,Denmark,미켈 담스가드
+Brentford FC,BRE,24210,Frank Onyeka,Central Midfield,Nigeria,프랭크 오녜카
+Brentford FC,BRE,16068,Kristoffer Ajer,Centre-Back,Norway,크리스토퍼 아예르
+Brentford FC,BRE,10194,Mathias Jensen,Central Midfield,Denmark,마티아스 젠슨
+Brentford FC,BRE,10000,Vitaly Janelt,Defensive Midfield,Germany,비탈리 자넬트
+Brentford FC,BRE,7799,Reiss Nelson,Right Winger,England,레이스 넬슨
+Brentford FC,BRE,7720,Sepp van den Berg,Centre-Back,Netherlands,제프 반 덴 버그
+Brentford FC,BRE,4426,Rico Henry,Left-Back,England,리코 헨리
+Brentford FC,BRE,4334,Ethan Pinnock,Centre-Back,Jamaica,에단 핀녹
+Brentford FC,BRE,3320,Jordan Henderson,Central Midfield,England,조던 헨더슨
+Brentford FC,BRE,249409,Benjamin Arthur,Centre-Back,England,벤자민 아서
+Brentford FC,BRE,214532,Yunus Konak,Defensive Midfield,Turkey,유누스 코낙
+Brentford FC,BRE,213296,Gustavo Gomes,Left Winger,Brazil,구스타보 고메스
+Brentford FC,BRE,204421,Yegor Yarmolyuk,Attacking Midfield,Ukraine,예고르 야몰류크
+Brentford FC,BRE,204348,Michael Kayode,Right-Back,Italy,마이클 카요데
+Brentford FC,BRE,177305,Dango Ouattara,Left Winger,Burkina Faso,당고 와타라
+Brentford FC,BRE,171965,Antoni Milambo,Central Midfield,Netherlands,안토니 밀람보
+Brentford FC,BRE,171099,Myles Peart-Harris,Attacking Midfield,England,마일스 피어트-해리스
+Brentford FC,BRE,151119,Fabio Carvalho,Attacking Midfield,Portugal,파비오 카르발류
+West Ham United FC,WHU,3357,Alphonse Aréola,Goalkeeper,France,알폰스 아레올라
+West Ham United FC,WHU,3526,Łukasz Fabiański,Goalkeeper,Poland,루카스 파비안스키
+West Ham United FC,WHU,97144,Mads Hermansen,Goalkeeper,Denmark,매즈 헤르만센
+West Ham United FC,WHU,205441,El Hadji Diouf,Defence,Senegal,엘 하지 디우프
+West Ham United FC,WHU,248957,George Earthy,Attacking Midfield,England,조지 어시
+West Ham United FC,WHU,207527,Callum Marshall,Centre-Forward,Northern Ireland,칼럼 마샬
+West Ham United FC,WHU,192653,Luis Guilherme,Right Winger,Brazil,루이스 길레르메
+West Ham United FC,WHU,188900,Oliver Scarles,Left-Back,England,올리버 스칼레스
+West Ham United FC,WHU,187216,Mateus Fernandes,Central Midfield,Portugal,마테우스 페르난데스
+West Ham United FC,WHU,179625,Soungoutou Magassa,Defensive Midfield,France,소운구투 마가사
+West Ham United FC,WHU,176597,Freddie Potts,Defensive Midfield,England,프레디 포츠
+West Ham United FC,WHU,170617,Andy Irving,Central Midfield,Scotland,앤디 어빙
+West Ham United FC,WHU,102193,Crysencio Summerville,Left Winger,Netherlands,크리센시오 서머빌
+West Ham United FC,WHU,79903,Jean-Clair Todibo,Centre-Back,France,장클레어 토디보
+West Ham United FC,WHU,39104,Guido Rodríguez,Defensive Midfield,Argentina,귀도 로드리게스
+West Ham United FC,WHU,25376,Max Kilman,Centre-Back,England,맥스 킬먼
+West Ham United FC,WHU,15742,Tomáš Souček,Defensive Midfield,Czech Republic,토마시 수첵
+West Ham United FC,WHU,11414,Jarrod Bowen,Right Winger,England,재러드 보웬
+West Ham United FC,WHU,10777,Igor,Centre-Back,Brazil,이고르
+West Ham United FC,WHU,8251,Callum Wilson,Centre-Forward,England,칼럼 윌슨
+West Ham United FC,WHU,8158,Aaron Wan-Bissaka,Right-Back,England,아론 완-비사카
+West Ham United FC,WHU,8088,James Ward-Prowse,Central Midfield,England,제임스 워드-프라우스
+West Ham United FC,WHU,7995,Kyle Walker-Peters,Right-Back,England,카일 워커-피터스
+West Ham United FC,WHU,7789,Konstantinos Mavropanos,Centre-Back,Greece,콘스탄티노스 마브로파노스
+West Ham United FC,WHU,1543,Lucas Paquetá,Attacking Midfield,Brazil,루카스 파케타
+West Ham United FC,WHU,304,Niclas Füllkrug,Centre-Forward,Germany,니클라스 풀크루그
+AFC Bournemouth,BOU,121765,Đorđe Petrović,Goalkeeper,Serbia,도르제 페트로비치
+AFC Bournemouth,BOU,131127,Will Dennis,Goalkeeper,England,윌 데니스
+AFC Bournemouth,BOU,227046,Veljko Milosavljević,Defence,Serbia,벨코 밀로사블예비치
+AFC Bournemouth,BOU,273757,Remy Rees-Dottin,Offence,England,레미 리스도틴
+AFC Bournemouth,BOU,227048,Álex Jiménez,Right-Back,Spain,알렉스 히메네스
+AFC Bournemouth,BOU,204241,Eli Kroupi,Centre-Forward,France,엘리 크루피
+AFC Bournemouth,BOU,183583,Julio Soler,Left-Back,Argentina,훌리오 솔레르
+AFC Bournemouth,BOU,176789,Ben Doak,Right Winger,Scotland,벤 도크
+AFC Bournemouth,BOU,161088,Alex Scott,Central Midfield,England,알렉스 스캇
+AFC Bournemouth,BOU,137047,Amine Adli,Left Winger,Morocco,아민 아들리
+AFC Bournemouth,BOU,135482,Adrien Truffert,Left-Back,France,아드리앙 트루퍼트
+AFC Bournemouth,BOU,131260,Evanilson,Centre-Forward,Brazil,에바닐슨
+AFC Bournemouth,BOU,113335,Julian Araujo,Right-Back,Mexico,줄리안 아라우조
+AFC Bournemouth,BOU,98745,Bafodé Diakité,Centre-Back,France,바포데 디아키테
+AFC Bournemouth,BOU,82145,James Hill,Centre-Back,England,제임스 힐
+AFC Bournemouth,BOU,77596,Tyler Adams,Defensive Midfield,USA,타일러 아담스
+AFC Bournemouth,BOU,46046,Marcos Senesi,Centre-Back,Argentina,마르코스 세네시
+AFC Bournemouth,BOU,34495,Ryan Christie,Central Midfield,Scotland,라이언 크리스티
+AFC Bournemouth,BOU,33132,Enes Ünal,Centre-Forward,Turkey,에네스 우날
+AFC Bournemouth,BOU,8231,Adam Smith,Right-Back,England,아담 스미스
+AFC Bournemouth,BOU,7561,Justin Kluivert,Left Winger,Netherlands,저스틴 클루이베르트
+AFC Bournemouth,BOU,6396,Marcus Tavernier,Left Midfield,England,마커스 타베르니어
+AFC Bournemouth,BOU,4417,Antoine Semenyo,Right Winger,Ghana,앙투안 세메뇨
+AFC Bournemouth,BOU,4321,David Brooks,Right Winger,Wales,데이비드 브룩스
+AFC Bournemouth,BOU,3327,Lewis Cook,Central Midfield,England,루이스 쿡
