@@ -2,6 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const Post = require("../models/Post");
+const { verifyToken } = require("../middlewares/authMiddleware"); // ✅ 추가
 
 const router = express.Router();
 
@@ -17,10 +18,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // ✅ 업로드 라우트
-router.post("/", upload.single("file"), async (req, res) => {
+router.post("/", verifyToken, upload.single("file"), async (req, res) => { // ✅ 인증 미들웨어 추가됨
   try {
     const { title, description, player } = req.body;
     const imageUrl = `/uploads/${req.file.filename}`;
+
+    // ✅ 로그인된 사용자 정보에서 이메일, 이름 추출
     const authorEmail = req.user?.email || "guest@unknown.com";
     const authorName = req.user?.displayName || "게스트";
 

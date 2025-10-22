@@ -16,10 +16,14 @@ const UploadForm = ({ selectedPlayer }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!file || !title || !description) {
       setMessage("⚠ 모든 항목을 입력해주세요!");
       return;
     }
+
+    // ✅ 로컬스토리지에 저장된 JWT 토큰 불러오기
+    const token = localStorage.getItem("token");
 
     const formData = new FormData();
     formData.append("file", file);
@@ -28,9 +32,12 @@ const UploadForm = ({ selectedPlayer }) => {
     formData.append("player", player);
 
     try {
-      const res = await fetch("/api/upload", {
+      const res = await fetch("http://localhost:3000/api/upload", {
         method: "POST",
         body: formData,
+        headers: {
+          Authorization: `Bearer ${token}`, // ✅ 로그인 정보 전달
+        },
       });
 
       if (res.ok) {
@@ -39,10 +46,11 @@ const UploadForm = ({ selectedPlayer }) => {
         setTitle("");
         setDescription("");
       } else {
-        setMessage("❌ 업로드 실패");
+        const data = await res.json();
+        setMessage(`❌ 업로드 실패: ${data.message || "알 수 없는 오류"}`);
       }
     } catch (err) {
-      console.error(err);
+      console.error("❌ 서버 오류:", err);
       setMessage("서버 오류가 발생했습니다.");
     }
   };
