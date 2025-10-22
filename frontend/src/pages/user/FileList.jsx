@@ -1,64 +1,108 @@
 import React, { useEffect, useState } from "react";
-import "./style/FileList.scss"; // ✅ SCSS 연결
+import "./style/FileList.scss";
 
-const FileList = ({ selectedPlayer, showAllUsers = false }) => {
-  const [files, setFiles] = useState([]);
+const FileList = () => {
+  const [posts, setPosts] = useState([]);
+  const [editingPost, setEditingPost] = useState(null);
+  const [editData, setEditData] = useState({ title: "", description: "", player: "" });
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  // ✅ 게시글 불러오기
+  const fetchPosts = async () => {
+    const res = await fetch("http://localhost:3000/api/files");
+    const data = await res.json();
+    setPosts(data);
+  };
 
   useEffect(() => {
-    fetch("/api/files") // ✅ 실제 백엔드 API 경로에 맞게 수정 필요
-      .then((res) => res.json())
-      .then((data) => {
-        let result = data;
+    fetchPosts();
+  }, []);
 
-        // ✅ 특정 선수 검색 필터
-        if (selectedPlayer) {
-          result = result.filter((f) =>
-            f.description?.includes(selectedPlayer)
-          );
-        }
+  // ✅ 게시글 삭제
+  const handleDelete = async (id) => {
+    if (!window.confirm("정말 삭제하시겠습니까?")) return;
+    const res = await fetch(`http://localhost:3000/api/files/${id}`, { method: "DELETE" });
+    if (res.ok) {
+      alert("✅ 삭제 완료");
+      fetchPosts();
+    } else {
+      alert("❌ 삭제 실패");
+    }
+  };
 
-        // ✅ showAllUsers = false → 로그인한 사용자 글만 보기
-        if (!showAllUsers) {
-          const rawUser = localStorage.getItem("user");
-          if (rawUser) {
-            const { email } = JSON.parse(rawUser);
-            result = result.filter((f) => f.user_email === email);
-          }
-        }
+  // ✅ 수정 모드 전환
+  const handleEdit = (post) => {
+    setEditingPost(post._id);
+    setEditData({
+      title: post.title,
+      description: post.description,
+      player: post.player,
+    });
+  };
 
-        setFiles(result);
-      })
-      .catch((err) => console.error("파일 불러오기 실패:", err));
-  }, [selectedPlayer, showAllUsers]);
+  // ✅ 수정 완료
+  const handleUpdate = async (id) => {
+    const res = await fetch(`http://localhost:3000/api/files/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editData),
+    });
+    if (res.ok) {
+      alert("✅ 수정 완료");
+      setEditingPost(null);
+      fetchPosts();
+    } else {
+      alert("❌ 수정 실패");
+    }
+  };
 
   return (
-    <div className="file-list">
-      {files.length > 0 ? (
-        <ul className="file-items">
-          {files.map((file) => (
-            <li key={file.id} className="file-item">
-              <div className="file-thumb">
-                <img src={file.image_url} alt={file.title} />
-              </div>
-              <div className="file-info">
-                <h3 className="file-title">{file.title}</h3>
-                <p className="file-desc">{file.description}</p>
-                <p className="file-meta">
-                  {file.user_name && (
-                    <span className="file-author">작성자: {file.user_name}</span>
+    <section className="file-list">
+      {posts.map((post) => {
+        const isMine = user && post.authorEmail === user.email;
+
+        return (
+          <div key={post._id} className="file-card">
+            <img src={post.imageUrl} alt={post.title} className="file-image" />
+            <div className="file-info">
+              {editingPost === post._id ? (
+                <>
+                  <input
+                    type="text"
+                    value={editData.title}
+                    onChange={(e) => setEditData({ ...editData, title: e.target.value })}
+                  />
+                  <input
+                    type="text"
+                    value={editData.player}
+                    onChange={(e) => setEditData({ ...editData, player: e.target.value })}
+                  />
+                  <textarea
+                    value={editData.description}
+                    onChange={(e) => setEditData({ ...editData, description: e.target.value })}
+                  />
+                  <button onClick={() => handleUpdate(post._id)}>💾 저장</button>
+                  <button onClick={() => setEditingPost(null)}>취소</button>
+                </>
+              ) : (
+                <>
+                  <h3 className="file-title">{post.title}</h3>
+                  <p className="file-player">⚽ {post.player}</p>
+                  <p className="file-desc">{post.description}</p>
+                  <p className="file-author">✍ {post.authorName}</p>
+                  {isMine && (
+                    <div className="file-actions">
+                      <button onClick={() => handleEdit(post)}>✏ 수정</button>
+                      <button onClick={() => handleDelete(post._id)}>🗑 삭제</button>
+                    </div>
                   )}
-                  <span className="file-date">
-                    {new Date(file.created_at).toLocaleDateString()}
-                  </span>
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="file-empty">표시할 글이 없습니다 😢</p>
-      )}
-    </div>
+                </>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </section>
   );
 };
 

@@ -57,7 +57,7 @@ export async function login({ email, password }) {
 }
 
 export async function fetchMe() {
-    const { data } = awaitapi.get("/api/auth/me")
+    const { data } = await api.get("/api/auth/me")
     return data
 }
 

@@ -22,35 +22,31 @@ const UploadForm = ({ selectedPlayer }) => {
       return;
     }
 
-    // ✅ 로컬스토리지에 저장된 JWT 토큰 불러오기
-    const token = localStorage.getItem("token");
-
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("player", player);
-
     try {
+      // 🔹 formData 구성
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("player", player);
+
+      // 🔹 백엔드로 업로드 요청 (S3 + MongoDB)
       const res = await fetch("http://localhost:3000/api/upload", {
         method: "POST",
         body: formData,
-        headers: {
-          Authorization: `Bearer ${token}`, // ✅ 로그인 정보 전달
-        },
       });
 
-      if (res.ok) {
-        setMessage("✅ 업로드 완료!");
-        setFile(null);
-        setTitle("");
-        setDescription("");
-      } else {
-        const data = await res.json();
-        setMessage(`❌ 업로드 실패: ${data.message || "알 수 없는 오류"}`);
-      }
+      if (!res.ok) throw new Error("업로드 실패");
+
+      const data = await res.json();
+      console.log("✅ 업로드 성공:", data);
+
+      setMessage("✅ 업로드 완료!");
+      setFile(null);
+      setTitle("");
+      setDescription("");
     } catch (err) {
-      console.error("❌ 서버 오류:", err);
+      console.error("❌ 업로드 오류:", err);
       setMessage("서버 오류가 발생했습니다.");
     }
   };
@@ -89,7 +85,7 @@ const UploadForm = ({ selectedPlayer }) => {
         </button>
       </div>
 
-      {/* 설명칸 (아래 한 줄 전체) */}
+      {/* 설명칸 */}
       <div className="upload-description">
         <textarea
           placeholder="설명"

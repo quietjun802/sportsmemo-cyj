@@ -1,88 +1,90 @@
 .file-list {
-  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.file-card {
+  width: 280px;
+  border: 1px solid var(--border, #ddd);
+  border-radius: 12px;
+  background: var(--surface, #fff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.file-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.file-info {
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 6px;
+}
 
-  .file-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-  }
+.file-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
-  .file-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.6rem;
-    padding: 1.6rem;
-    border: 0.1rem solid var(--border);
-    border-radius: var(--radius-s);
-    background: var(--surface);
-    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.03);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.file-player {
+  color: var(--primary, #0066ff);
+  font-size: 0.9rem;
+}
+
+.file-desc {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.file-author {
+  font-size: 0.8rem;
+  color: #777;
+  text-align: right;
+}
+
+.filelist-msg {
+  text-align: center;
+  color: #666;
+  margin-top: 40px;
+}
+.file-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0066ff;
+    font-size: 0.9rem;
+    transition: color 0.2s;
 
     &:hover {
-      transform: translateY(-0.2rem);
-      box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.08);
+      color: #ff4747;
     }
   }
+}
 
-  .file-thumb {
-    width: 120px;
-    height: 120px;
-    flex-shrink: 0;
-    border-radius: var(--radius-s);
-    overflow: hidden;
-    background: #f3f4f6;
-    border: 0.1rem solid var(--border);
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .file-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .file-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .file-desc {
-    font-size: 1.4rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 0.8rem;
-  }
-
-  .file-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    color: var(--muted);
-
-    .file-author {
-      font-weight: 500;
-    }
-
-    .file-date {
-      opacity: 0.8;
-    }
-  }
-
-  .file-empty {
-    text-align: center;
-    color: var(--muted);
-    font-size: 1.5rem;
-    margin-top: 2rem;
-  }
+.file-info input,
+.file-info textarea {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }

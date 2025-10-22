@@ -1,13 +1,16 @@
+// backend/models/Post.js
 const mongoose = require("mongoose");
 
-const PostSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  description: { type: String },
-  player: { type: String },
-  imageUrl: { type: String },
-  authorEmail: { type: String },
-  authorName: { type: String },
-  createdAt: { type: Date, default: Date.now },
-});
+const PostSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    player: { type: String, required: true },
+    imageUrl: { type: String, required: true },
+    authorEmail: { type: String, default: "guest@unknown.com" },
+    authorName: { type: String, default: "게스트" },
+  },
+  { timestamps: true } // ✅ createdAt, updatedAt 자동 생성
+);
 
 module.exports = mongoose.model("Post", PostSchema);
