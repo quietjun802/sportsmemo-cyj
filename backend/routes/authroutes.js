@@ -5,21 +5,23 @@ const bcrypt = require("bcrypt")
 const User = require("../models/User")
 const auth = require('../middlewares/auth')
 
+// ✅ displayName을 JWT에 포함시켜야 나중에 req.user.displayName 사용 가능
 function makeToken(user) {
     return jwt.sign(
         {
             id: user._id.toString(),
             role: user.role,
-            email: user.email
+            email: user.email,
+            displayName: user.displayName // ✅ 추가됨
         },
         process.env.JWT_SECRET,
         {
             expiresIn: "7d"
         }
-
     )
 }
 
+// ✅ 회원가입
 router.post("/register", async (req, res) => {
     try {
         const { email, password, displayName, role } = req.body
@@ -28,11 +30,8 @@ router.post("/register", async (req, res) => {
             return res.status(400).json({ message: "이메일/비밀번호 필요" })
         }
 
-        const exists = await User.findOne({
-            email: email.toLowerCase()
-        })
+        const exists = await User.findOne({ email: email.toLowerCase() })
         if (exists) {
-
             return res.status(400).json({ message: "이미 가입된 이메일" })
         }
 
@@ -55,27 +54,22 @@ router.post("/register", async (req, res) => {
             message: "회원가입 실패",
             error: error.message
         })
-
     }
 })
 
+// ✅ 로그인
 const LOCK_MAX = 5
 router.post("/login", async (req, res) => {
     try {
-        // 1) req.body에서 email, password를 꺼낸다(기본값은 빈 문자열).
         const { email, password } = req.body
 
-        //  2) 이메일을 소문자로 바꿔 활성화된 유저(isActive: true)만 조회한다. .findOne() /.toLowerCase()
         const user = await User.findOne({
             email: email.toLowerCase(),
             isActive: true
         })
 
+        const invalidMsg = { message: "이메일 또는 비밀번호가 올바르지 않습니다." }
 
-        const invalidMsg = { message: "이메일 또는 비밀번호가 올바르지 않습니다." };
-
-
-        // 3 사용자 없음
         if (!user) {
             return res.status(400).json({
                 ...invalidMsg,
@@ -85,21 +79,15 @@ router.post("/login", async (req, res) => {
             })
         }
 
-        // 4)비밀번호 검증 (User 모델에 comparePassword 메서드가 있다고 가정)
         const ok = await user.comparePassword(password)
 
-        // 5)비밀번호 불일치
         if (!ok) {
             user.loginAttempts += 1
-
             const remaining = Math.max(0, LOCK_MAX - user.loginAttempts)
 
-            // 5-1 실패 누적 임계치 이상 일때 계정 잠금
             if (user.loginAttempts >= LOCK_MAX) {
-                user.isActive = false//잠금처리
-
+                user.isActive = false
                 await user.save()
-
                 return res.status(423).json({
                     message: "유효성 검증 실패로 계정이 잠겼습니다. 관리자에게 문의하세요.",
                     loginAttempts: user.loginAttempts,
@@ -107,7 +95,7 @@ router.post("/login", async (req, res) => {
                     locked: true
                 })
             }
-            // 5-2 아직 잠금 전 400 현재 실패 남은 횟수 안내
+
             await user.save()
             return res.status(400).json({
                 ...invalidMsg,
@@ -117,28 +105,22 @@ router.post("/login", async (req, res) => {
             })
         }
 
-
-        // 6 로그인 성공: 실패 카운트 초기화 접속 정보 업데이트
-
+        // 로그인 성공
         user.loginAttempts = 0
         user.isLoggined = true
         user.lastLoginAt = new Date()
-
         await user.save()
 
-        // 7 JWT 발급 및 쿠키 설정
+        // ✅ displayName 포함된 토큰 발급
         const token = makeToken(user)
-
 
         res.cookie('token', token, {
             httpOnly: true,
             sameSite: "lax",
-            secure: "production",
+            secure: process.env.NODE_ENV === "production",
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
 
-
-        // 8 성공 응답: 사용자 정보 +토큰+ 참조용 카운트 
         return res.status(200).json({
             user: user.toSafeJSON(),
             token,
@@ -155,58 +137,55 @@ router.post("/login", async (req, res) => {
     }
 })
 
+// ✅ 인증 미들웨어 적용
 router.use(auth)
 
-
+// ✅ 내 정보 조회
 router.get("/me", async (req, res) => {
     try {
         const me = await User.findById(req.user.id)
-
         if (!me) return res.status(404).json({ message: "사용자 없음" })
-
         return res.status(200).json(me.toSafeJSON())
-
     } catch (error) {
-
         res.status(401).json({ message: "조회 실패", error: error.message })
     }
 })
 
+// ✅ 전체 유저 목록 (admin 전용)
 router.get("/users", async (req, res) => {
     try {
         const me = await User.findById(req.user.id)
         if (!me) return res.status(404).json({ message: '사용자 없음' })
 
-
         if (me.role !== 'admin') {
             return res.status(403).json({ message: '권한 없음' })
         }
-        const users = await User.find().select('-passwordHash')
 
+        const users = await User.find().select('-passwordHash')
         return res.status(200).json({ users })
     } catch (error) {
         res.status(401).json({ message: "조회 실패", error: error.message })
-
     }
 })
 
+// ✅ 로그아웃
 router.post("/logout", async (req, res) => {
     try {
         await User.findByIdAndUpdate(
             req.user.id,
-            { $set: { isLoggined: false }, },
+            { $set: { isLoggined: false } },
             { new: true }
         )
 
-        res.clearCookie('token',{
+        res.clearCookie('token', {
             httpOnly: true,
             sameSite: "lax",
-            secure: "production",
+            secure: process.env.NODE_ENV === "production",
         })
-        return res.status(200).json({message:'로그아웃 성공'})
-    } catch (error) {
 
-        return res.status(500).json({message:'로그아웃 실패',error:error.message})
+        return res.status(200).json({ message: '로그아웃 성공' })
+    } catch (error) {
+        return res.status(500).json({ message: '로그아웃 실패', error: error.message })
     }
 })
 

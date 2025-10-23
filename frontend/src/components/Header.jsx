@@ -1,6 +1,7 @@
 import React from 'react'
-import { useNavigate, NavLink, Link } from 'react-router-dom'
 
+import { useNavigate, NavLink, Link } from 'react-router-dom'
+import "./style/Header.scss"
 const Header = ({
     isAuthed,
     user,
@@ -21,20 +22,18 @@ const Header = ({
     return (
         <header className='site-header'>
             <div className="inner">
-                <h1 className="logo">
+                <h1 className='logo'>
                     📷Photomemo
                 </h1>
                 <div className="auth-area">
-                    {isAuthed ? (
+                    {isAuthed && (
                         <div>
                             <span className='welcome'>
                                 {user?.displayName || user?.email || "user"}
                             </span>
                             <button className='btn logout' onClick={handleLogout}>로그아웃</button>
                         </div>
-                    ) : (
-                        <Link className='btn login' to='/admin/login'></Link>
-                    )}
+                    ) }
                 </div>
             </div>
         </header>

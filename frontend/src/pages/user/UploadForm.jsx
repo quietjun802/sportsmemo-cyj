@@ -8,6 +8,9 @@ const UploadForm = ({ selectedPlayer }) => {
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
 
+  // 로그인된 사용자 토큰
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     if (selectedPlayer) setPlayer(selectedPlayer);
   }, [selectedPlayer]);
@@ -23,16 +26,18 @@ const UploadForm = ({ selectedPlayer }) => {
     }
 
     try {
-      // 🔹 formData 구성
       const formData = new FormData();
       formData.append("file", file);
       formData.append("title", title);
       formData.append("description", description);
       formData.append("player", player);
 
-      // 🔹 백엔드로 업로드 요청 (S3 + MongoDB)
+      // 🔹 토큰 포함한 업로드 요청
       const res = await fetch("http://localhost:3000/api/upload", {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`, // ✅ 로그인 토큰 전달
+        },
         body: formData,
       });
 
@@ -47,7 +52,11 @@ const UploadForm = ({ selectedPlayer }) => {
       setDescription("");
     } catch (err) {
       console.error("❌ 업로드 오류:", err);
-      setMessage("서버 오류가 발생했습니다.");
+      if (err.message.includes("401")) {
+        setMessage("로그인이 필요합니다.");
+      } else {
+        setMessage("서버 오류가 발생했습니다.");
+      }
     }
   };
 

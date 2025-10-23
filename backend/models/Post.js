@@ -8,7 +8,7 @@ const PostSchema = new mongoose.Schema(
     player: { type: String, required: true },
     imageUrl: { type: String, required: true },
     authorEmail: { type: String, default: "guest@unknown.com" },
-    authorName: { type: String, default: "게스트" },
+    authorName: { type: String, default: "사용자" },
   },
   { timestamps: true } // ✅ createdAt, updatedAt 자동 생성
 );
