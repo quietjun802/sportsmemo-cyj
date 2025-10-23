@@ -1,23 +1,15 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
+/* Reset */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-* {
-  margin: 0;
-  padding: 0;
-}
+* { margin: 0; padding: 0; }
 
 html { font-size: 62.5%; }
+html, body, #root { height: 100%; }
 
-html,
-body,
-#root {
-  height: 100%;
-}
 body {
   background: var(--bg);
   color: var(--text);
@@ -25,83 +17,65 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-family: 'Spoqa Han Sans Neo', sans-serif;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
-
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-    color: inherit;
-  }
-
-  button { cursor: pointer; }
 }
-ul {list-style-type: none;}
 
-
-
+/* =========================
+   ⚽ Theme (Football Inspired)
+========================= */
 :root {
-  --bg: #ffffff;
-  --text: #111111;
-  --muted: #555555;
-  --border: #e5e7eb;
-  --surface: #fafafa;
+  --bg: #f4f8f5;                 /* 필드 배경처럼 부드러운 민트빛 */
+  --surface: #ffffff;             /* 카드나 입력창 흰색 */
+  --text: #0f172a;                /* 다크 네이비 (가독성 높음) */
+  --muted: #64748b;               /* 회색 대신 푸른톤 회색 */
+  --border: #dce5e1;              /* 따뜻한 회색선 */
 
-  --primary: #239beb;
-  --primary-contrast: #ffffff;
+  --primary: #1e90ff;             /* 스카이블루 — 축구팀 유니폼 느낌 */
+  --primary-dark: #0f7ad9;        /* hover 시 진해지는 파란색 */
+  --secondary: #4caf50;           /* 잔디색 포인트 */
+  --secondary-dark: #3a9142;      /* hover용 진한 초록 */
+  --accent: #ff4d4f;              /* 골, 하이라이트 표시용 레드 */
+  --accent-dark: #d9363e;         /* hover 시 진한 레드 */
+  --focus: #64b5f6;               /* 포커스 하이라이트 */
 
-  --radius-l: 1rem; /* 10px */
-  --radius-s: 0.5rem; /* 5px */
-  --focus: #5b9fff;
+  --radius-l: 1rem;
+  --radius-s: 0.5rem;
 }
 
-
-/* 포커스 */
+/* =========================
+   Focus
+========================= */
 :focus-visible {
   outline: 0.2rem solid var(--focus);
   outline-offset: 0.2rem;
   border-radius: 0.6rem;
 }
 
-
-
 /* =========================
    Typography
 ========================= */
 h1 {
   font-size: clamp(2.8rem, 4.5vw, 4rem);
-  font-weight: 700;
+  font-weight: 800;
+  color: var(--text);
 }
 
 h2 {
   font-size: clamp(2.2rem, 3.2vw, 2.8rem);
   font-weight: 700;
+  color: var(--text);
 }
 
 h3 {
   font-size: clamp(1.8rem, 2.6vw, 2.2rem);
   font-weight: 600;
+  color: var(--text);
 }
 
 p {
-  font-size: clamp(1.2rem, 1.4vw, 1.8rem);
+  font-size: clamp(1.4rem, 1.6vw, 1.8rem);
   color: var(--text);
 }
+
 /* =========================
    Layout Utils
 ========================= */
@@ -109,79 +83,90 @@ p {
   max-width: 96rem;
   margin: 0 auto;
   padding: 0 1.6rem;
-
 }
+
 .container-sm {
   min-width: 60rem;
   padding: 2rem;
   @media screen and (max-width:600px) {
     min-width: auto;
-    
   }
 }
 
-.section { padding: 2.4rem 0; }
-
-section {
-  &.minvh { min-height: 100vh; }
-}
-
 /* =========================
-   Forms (공통)
+   Forms
 ========================= */
-input,
-select,
-textarea {
+input, select, textarea {
   padding: 1rem;
   border: 0.1rem solid var(--border);
   border-radius: var(--radius-s);
-  background: var(--bg);
+  background: var(--surface);
   color: var(--text);
-}
-
-.textarea {
-  min-height: 12rem;
-  resize: vertical;
 }
 
 /* =========================
-   Buttons
+   Buttons (개선된 Hover 색상)
 ========================= */
-button {
+button, .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1.4rem;
+  padding: 1rem 1.6rem;
   border-radius: var(--radius-s);
-  border: 0.1rem solid var(--border);
-  background: #eee;
-  color: var(--text);
-  transition: transform 0.02s ease-in-out, opacity 0.2s ease;
-
-  &:hover { transform: translateY(-0.1rem); }
-  &:active { transform: translateY(0); }
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 1.4rem;
-  border-radius: var(--radius-s);
-  border: 0.1rem solid var(--border);
-  background: var(--primary);
-  color: var(--bg);
-  font-size: clamp(1.4rem, 1.6vw, 2rem);
+  font-size: clamp(1.4rem, 1.6vw, 1.8rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  border: none;
 
   &.primary {
     background: var(--primary);
     color: var(--primary-contrast);
-    border-color: var(--primary);
+    box-shadow: 0 3px 10px rgba(30, 144, 255, 0.25);
+
+    &:hover {
+      background: var(--primary-dark);   /* ✅ hover 시 어두운 파랑 */
+      box-shadow: 0 4px 12px rgba(15, 122, 217, 0.35);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      background: #0c5aa5;
+      transform: scale(0.98);
+    }
+  }
+
+  &.secondary {
+    background: var(--secondary);
+    color: #fff;
+
+    &:hover {
+      background: var(--secondary-dark); /* ✅ hover 시 진한 초록 */
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.35);
+    }
+
+    &:active {
+      background: #2e7033;
+    }
+  }
+
+  &.danger {
+    background: var(--accent);
+    color: #fff;
+
+    &:hover {
+      background: var(--accent-dark);    /* ✅ hover 시 진한 레드 */
+      box-shadow: 0 4px 12px rgba(217, 54, 62, 0.35);
+    }
+
+    &:active {
+      background: #b71c1c;
+    }
   }
 }
 
 /* =========================
-   Code Block
+   Code / Card
 ========================= */
 pre {
   background: var(--surface);

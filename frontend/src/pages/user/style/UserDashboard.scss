@@ -1,0 +1,53 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px; /* ✅ 전체 섹션 간 기본 간격 축소 */
+  padding: 90px 20px 60px; /* ✅ 상단 패딩 약간 줄임 (120 → 90) */
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* 공통 섹션 스타일 */
+.dashboard-section {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--surface);
+  border-radius: var(--radius-l);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 32px; /* ✅ 내부 여백 살짝 줄임 */
+}
+
+/* 프리미어리그 선수 검색 */
+.search-section {
+  text-align: center;
+  margin-bottom: 12px; /* ✅ 업로드와의 간격 좁힘 */
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px; /* ✅ 제목과 input 사이 좁힘 */
+    color: var(--primary);
+  }
+
+  input {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+/* 업로드 섹션 */
+.upload-section {
+  margin-bottom: 32px; /* ✅ 피드와의 간격 축소 (이전보다 약 -40%) */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+/* 피드 섹션 */
+.feed-section {
+  background: transparent;
+  box-shadow: none;
+  padding-top: 0;
+  margin-top: 0;
+}

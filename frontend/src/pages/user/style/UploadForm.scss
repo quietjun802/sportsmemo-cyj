@@ -9,7 +9,7 @@
 
   .upload-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* ✅ 자동완성 리스트가 겹치지 않게 */
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
@@ -25,6 +25,12 @@
       padding: 0.8rem 1rem;
       cursor: pointer;
       background: var(--surface);
+      transition: 0.15s ease;
+
+      &:hover {
+        border-color: var(--primary);
+        box-shadow: 0 0 0.3rem rgba(35, 155, 235, 0.2);
+      }
 
       input[type="file"] {
         display: none;
@@ -36,6 +42,68 @@
       }
     }
 
+    /* ✅ 선수 자동완성 입력 구역 */
+    .player-search {
+      position: relative;
+      flex: 1;
+      min-width: 180px;
+
+      .upload-input {
+        width: 100%;
+        padding: 1rem;
+        border: 0.1rem solid var(--border);
+        border-radius: var(--radius-s);
+        background: var(--bg);
+        color: var(--text);
+        font-size: 1.4rem;
+        transition: all 0.2s ease;
+
+        &:focus {
+          border-color: var(--primary);
+          box-shadow: 0 0 0 3px rgba(35, 155, 235, 0.2);
+          outline: none;
+        }
+      }
+
+      /* ✅ 자동완성 리스트 */
+      .player-list {
+        position: absolute;
+        top: 105%;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        border: 0.1rem solid var(--border);
+        border-radius: var(--radius-s);
+        margin-top: 0.2rem;
+        box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        max-height: 180px;
+        overflow-y: auto;
+
+        .player-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.8rem 1rem;
+          font-size: 1.4rem;
+          cursor: pointer;
+          color: var(--text);
+          transition: background 0.15s ease;
+
+          &:hover {
+            background: var(--primary);
+            color: var(--primary-contrast);
+          }
+
+          .player-team {
+            font-size: 1.2rem;
+            color: var(--muted);
+          }
+        }
+      }
+    }
+
+    /* 제목 입력칸 */
     .upload-input {
       flex: 1;
       min-width: 180px;
@@ -44,6 +112,8 @@
       border-radius: var(--radius-s);
       background: var(--bg);
       color: var(--text);
+      font-size: 1.4rem;
+      transition: all 0.2s ease;
 
       &:focus {
         border-color: var(--primary);
@@ -52,6 +122,7 @@
       }
     }
 
+    /* 업로드 버튼 */
     .upload-btn {
       background: var(--primary);
       color: var(--primary-contrast);
@@ -60,14 +131,20 @@
       border-radius: var(--radius-s);
       font-size: 1.5rem;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, transform 0.1s ease;
 
       &:hover {
         background: var(--primary-dark);
+        transform: translateY(-0.5px);
+      }
+
+      &:active {
+        transform: scale(0.98);
       }
     }
   }
 
+  /* 설명 입력칸 */
   .upload-description {
     textarea {
       width: 100%;
@@ -78,6 +155,8 @@
       background: var(--bg);
       color: var(--text);
       resize: vertical;
+      font-size: 1.4rem;
+      transition: all 0.2s ease;
 
       &:focus {
         border-color: var(--primary);
@@ -87,9 +166,18 @@
     }
   }
 
+  /* 메시지 */
   .upload-msg {
     margin-top: 1rem;
     font-size: 1.4rem;
     color: var(--muted);
   }
+}
+.upload-input.valid {
+  border-color: var(--secondary);
+}
+
+.upload-input.invalid:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.2);
 }
