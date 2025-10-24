@@ -1,0 +1,30 @@
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .search-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-s);
+    padding: 0.8rem 1.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover {
+      background: var(--secondary);
+      transform: scale(1.05);
+    }
+  }
+}

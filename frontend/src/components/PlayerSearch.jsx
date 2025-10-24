@@ -1,78 +1,149 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
-import './style/PlayerSearch.scss'
+import "./SearchFeed.scss";
 
-const PlayerSearch = ({ onSelect }) => {
-  const [players, setPlayers] = useState([]);
+const SearchFeed = () => {
   const [keyword, setKeyword] = useState("");
+  const [players, setPlayers] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [selected, setSelected] = useState(null);
+  const [selectedPlayer, setSelectedPlayer] = useState("");
+  const [posts, setPosts] = useState([]);
 
-  // CSV 불러오기
+  // ✅ CSV 불러오기
   useEffect(() => {
     fetch("/data/premier_league_players_ko.csv")
       .then((res) => res.text())
       .then((text) => {
         const result = Papa.parse(text, { header: true });
-        setPlayers(result.data);
-      });
+        const clean = result.data.filter(
+          (p) => p.player_name || p.player_name_ko
+        );
+        setPlayers(clean);
+      })
+      .catch((err) => console.error("CSV 불러오기 실패:", err));
   }, []);
 
-  // 검색 필터링
+  // ✅ 자동완성 필터링
   useEffect(() => {
-    if (!keyword.trim()) {
+    if (!keyword.trim() || players.length === 0) {
       setFiltered([]);
       return;
     }
 
-    const result = players.filter(
-      (p) =>
-        p.player_name_ko?.includes(keyword) ||
-        p.player_name?.toLowerCase().includes(keyword.toLowerCase())
-    );
-    setFiltered(result);
+    const lower = keyword.toLowerCase();
+    const result = players.filter((p) => {
+      const ko = p.player_name_ko?.toLowerCase() || "";
+      const en = p.player_name?.toLowerCase() || "";
+      return ko.includes(lower) || en.includes(lower);
+    });
+
+    setFiltered(result.slice(0, 8));
   }, [keyword, players]);
 
-  // ✅ 선수 클릭 시 처리
-  const handleSelect = (player) => {
-    const fullName = player.player_name_ko || player.player_name;
-    setKeyword(fullName);
-    setSelected(fullName);
-    setFiltered([]); // 리스트 닫기
-    if (onSelect) onSelect(fullName);
+  // ✅ 클릭 시 선택
+  const handleSelect = (p) => {
+    const full = p.player_name_ko || p.player_name;
+    setKeyword(full);
+    setSelectedPlayer(full);
+    setFiltered([]);
   };
 
-  return (
-    <div className="player-search">
-      <input
-        type="text"
-        className="player-input"
-        placeholder="선수 이름(한글 또는 영어)"
-        value={keyword}
-        onChange={(e) => {
-          setKeyword(e.target.value);
-          setSelected(null);
-        }}
-      />
+  // ✅ Enter 키로 첫 번째 자동완성 선택
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && filtered.length > 0) {
+      e.preventDefault();
+      handleSelect(filtered[0]);
+    }
+  };
 
-      {filtered.length > 0 && (
-        <ul className="player-list">
-          {filtered.map((player, idx) => (
-            <li
-              key={idx}
-              className="player-item"
-              onClick={() => handleSelect(player)}
-            >
-              <span className="player-name">
-                {player.player_name_ko || player.player_name}
-              </span>
-              <span className="player-team"> — {player.team}</span>
-            </li>
-          ))}
-        </ul>
+  // ✅ Blur 시 자동보정 (CSV 전체 탐색)
+  const handleBlur = () => {
+    const lower = keyword.toLowerCase().trim();
+    if (!lower) return;
+
+    const match = players.find((p) => {
+      const ko = p.player_name_ko?.toLowerCase() || "";
+      const en = p.player_name?.toLowerCase() || "";
+      return ko.includes(lower) || en.includes(lower);
+    });
+
+    if (match) {
+      const full = match.player_name_ko || match.player_name;
+      setKeyword(full);
+      setSelectedPlayer(full);
+    }
+
+    setTimeout(() => setFiltered([]), 150);
+  };
+
+  // ✅ 선수 선택 시 포스트 불러오기
+  useEffect(() => {
+    if (!selectedPlayer) return;
+
+    fetch(`http://localhost:3000/api/posts/player/${encodeURIComponent(selectedPlayer)}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((err) => console.error("❌ 게시글 로드 실패:", err));
+  }, [selectedPlayer]);
+
+  return (
+    <section className="search-feed container">
+      <header className="search-header">
+        <h1>선수별 포토메모 피드</h1>
+        <p>한글 또는 영어 이름으로 검색하면 해당 선수를 태그한 모든 유저의 글이 표시됩니다.</p>
+      </header>
+
+      {/* ✅ 자동완성 검색창 */}
+      <div className="player-search">
+        <input
+          type="text"
+          placeholder="선수 이름 (자동완성)"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
+          className="search-input"
+          autoComplete="off"
+        />
+
+        {filtered.length > 0 && (
+          <ul className="player-list">
+            {filtered.map((p, idx) => (
+              <li key={idx} onClick={() => handleSelect(p)}>
+                <span className="player-name">{p.player_name_ko || p.player_name}</span>
+                <span className="player-team"> — {p.team}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* ✅ 결과 */}
+      {selectedPlayer ? (
+        <>
+          <h2 className="search-result-title">📸 {selectedPlayer} 관련 포토메모</h2>
+          <div className="feed-list">
+            {posts.length > 0 ? (
+              posts.map((post) => (
+                <div key={post._id} className="feed-card">
+                  <img src={post.imageUrl} alt={post.title} />
+                  <h3>{post.title}</h3>
+                  <p>{post.description}</p>
+                  <small>작성자: {post.authorName}</small>
+                </div>
+              ))
+            ) : (
+              <p className="empty">등록된 포스트가 없습니다.</p>
+            )}
+          </div>
+        </>
+      ) : (
+        <p className="search-placeholder">⚽ 선수를 검색해보세요!</p>
       )}
-    </div>
+    </section>
   );
 };
 
-export default PlayerSearch;
+export default SearchFeed;

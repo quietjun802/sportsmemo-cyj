@@ -53,3 +53,6 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running: http://localhost:${PORT}`);
 });
+
+const postRoutes = require("./routes/posts");
+app.use("/api/posts", postRoutes);

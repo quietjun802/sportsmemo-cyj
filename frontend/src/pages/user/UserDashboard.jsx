@@ -1,21 +1,31 @@
-import React, { useState } from "react";
-import FileList from "./FileList";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import UploadForm from "./UploadForm";
-import PlayerSearch from "../../components/PlayerSearch";
+import FileList from "./FileList";
+import "./style/UserDashboard.scss";
 
 const UserDashboard = () => {
-  const [selectedPlayer, setSelectedPlayer] = useState("");
+  const navigate = useNavigate();
 
   return (
-    <section style={{ padding: "30px" }}>
-      <div style={{ marginBottom: "40px" }}>
-        <h2>프리미어리그 선수 검색</h2>
-        <PlayerSearch onSelect={(name) => setSelectedPlayer(name)} />
+    <div className="dashboard-container">
+      <div className="dashboard-header">
+        <h1>내 포토메모</h1>
+        <button className="search-btn" onClick={() => navigate("/search")}>
+          🔍 선수 검색
+        </button>
       </div>
 
-      <UploadForm selectedPlayer={selectedPlayer} />
-      <FileList />
-    </section>
+      {/* 업로드 섹션 */}
+      <section className="dashboard-section upload-section">
+        <UploadForm />
+      </section>
+
+      {/* 내 피드 */}
+      <section className="dashboard-section feed-section">
+        <FileList showAllUsers={false} />
+      </section>
+    </div>
   );
 };
 
