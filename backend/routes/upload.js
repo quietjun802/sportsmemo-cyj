@@ -57,6 +57,7 @@ router.post("/", verifyToken, upload.single("file"), async (req, res) => {
       title,
       description,
       player,
+      playerLower: player.toLowerCase().trim(),
       imageUrl,
       authorEmail,
       authorName,

@@ -3,14 +3,14 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const path = require("path"); // ✅ 이거 한 줄 추가 (혹시 나중에 로컬 접근 시 필요)
+const path = require("path");
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// ✅ 미들웨어 설정
+// ✅ 미들웨어
 app.use(
   cors({
     origin: process.env.FRONT_ORIGIN,
@@ -37,14 +37,18 @@ app.use("/api/auth", authRoutes);
 const uploadRoutes = require("./routes/upload");
 app.use("/api/upload", uploadRoutes);
 
-// ✅ File Routes (업로드된 게시물 목록 불러오기)
+// ✅ File Routes (업로드된 게시물 목록)
 const fileRoutes = require("./routes/files");
 app.use("/api/files", fileRoutes);
 
-// ⚠️ 로컬 uploads 폴더는 이제 사용하지 않으므로 주석 처리
+// ✅ Post Routes (검색용)
+const postRoutes = require("./routes/posts");
+app.use("/api/posts", postRoutes);
+
+// ⚠️ 로컬 uploads 폴더는 이제 사용하지 않음
 // app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// ✅ 에러 핸들링 (404 or 기타 에러)
+// ✅ ⚠️ 404 핸들러는 항상 “맨 마지막에” 둬야 함
 app.use((req, res) => {
   res.status(404).json({ message: "요청한 API를 찾을 수 없습니다." });
 });
@@ -53,6 +57,3 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running: http://localhost:${PORT}`);
 });
-
-const postRoutes = require("./routes/posts");
-app.use("/api/posts", postRoutes);

@@ -1,22 +1,23 @@
+// backend/models/Post.js
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true },
-    description: { type: String, required: true },
-    player: { type: String, required: true },
-    playerLower: { type: String, index: true }, // ✅ 검색 최적화용 필드 추가
-    imageUrl: { type: String, required: true },
-    authorEmail: { type: String, default: "guest@unknown.com" },
-    authorName: { type: String, default: "사용자" },
+    title: String,
+    description: String,
+    player: String,
+    playerLower: String,
+    imageUrl: String,
+    authorEmail: String,
+    authorName: String,
   },
   { timestamps: true }
 );
 
-// ✅ 저장 전에 playerLower 자동 세팅
+// ✅ 저장 전에 자동으로 playerLower 추가
 PostSchema.pre("save", function (next) {
   if (this.player) {
-    this.playerLower = this.player.toLowerCase();
+    this.playerLower = this.player.toLowerCase().trim();
   }
   next();
 });

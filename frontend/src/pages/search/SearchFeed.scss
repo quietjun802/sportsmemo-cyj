@@ -5,16 +5,15 @@
   .player-search {
     position: relative;
     display: inline-block;
-    width: 320px;
-    margin-top: 20px;
+    width: 300px;
 
-    input {
+    .search-input {
       width: 100%;
       padding: 1rem;
       border: 1px solid var(--border);
       border-radius: var(--radius-s);
       background: var(--surface);
-      font-size: 1.4rem;
+      color: var(--text);
 
       &:focus {
         border-color: var(--primary);
@@ -40,6 +39,7 @@
         padding: 0.8rem 1rem;
         cursor: pointer;
         text-align: left;
+
         &:hover {
           background: var(--primary);
           color: var(--primary-contrast);
