@@ -24,38 +24,54 @@ function makeToken(user) {
 // ✅ 회원가입
 router.post("/register", async (req, res) => {
     try {
-        const { email, password, displayName, role } = req.body
+        const { email, password, displayName, role } = req.body;
 
         if (!email || !password) {
-            return res.status(400).json({ message: "이메일/비밀번호 필요" })
+            return res.status(400).json({ message: "이메일/비밀번호 필요" });
         }
 
-        const exists = await User.findOne({ email: email.toLowerCase() })
+        const exists = await User.findOne({ email: email.toLowerCase() });
         if (exists) {
-            return res.status(400).json({ message: "이미 가입된 이메일" })
+            return res.status(400).json({ message: "이미 가입된 이메일" });
         }
 
-        const passwordHash = await bcrypt.hash(password, 10)
+        const passwordHash = await bcrypt.hash(password, 10);
 
-        const validRoles = ["user", "admin"]
-        const safeRole = validRoles.includes(role) ? role : "user"
+        const validRoles = ["user", "admin"];
+        const safeRole = validRoles.includes(role) ? role : "user";
 
         const user = await User.create({
             email,
             displayName,
             passwordHash,
             role: safeRole
-        })
+        });
 
-        res.status(201).json({ user: user.toSafeJSON() })
+        // ✅ 회원가입 시에도 토큰 발급
+        const token = makeToken(user);
+
+        // ✅ 쿠키로 토큰 저장 (로컬환경용)
+        res.cookie("token", token, {
+            httpOnly: true,
+            sameSite: "lax",
+            secure: process.env.NODE_ENV === "production",
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
+
+        // ✅ 프론트로 user + token 반환
+        res.status(201).json({
+            user: user.toSafeJSON(),
+            token,
+            message: "회원가입 성공"
+        });
 
     } catch (error) {
         return res.status(500).json({
             message: "회원가입 실패",
             error: error.message
-        })
+        });
     }
-})
+});
 
 // ✅ 로그인
 const LOCK_MAX = 5
