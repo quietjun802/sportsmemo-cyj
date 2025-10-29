@@ -10,15 +10,26 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// ✅ 미들웨어
+// ✅ 프론트엔드 주소 (환경변수 없을 경우 대비)
+const FRONT_ORIGIN = process.env.FRONT_ORIGIN || "http://localhost:5173";
+
+// ✅ 미들웨어 — 쿠키 전송 허용
 app.use(
   cors({
-    origin: process.env.FRONT_ORIGIN,
-    credentials: true,
+    origin: FRONT_ORIGIN,
+    credentials: true, // ✅ 반드시 true로 설정해야 쿠키 전송 가능
   })
 );
+
+// ✅ 요청 파서
 app.use(express.json({ limit: "5mb" }));
 app.use(cookieParser());
+
+// ✅ 디버그 로그 (요청마다 쿠키 확인)
+app.use((req, _res, next) => {
+  console.log("🍪 현재 요청 쿠키:", req.cookies);
+  next();
+});
 
 // ✅ MongoDB 연결
 mongoose
@@ -48,7 +59,7 @@ app.use("/api/posts", postRoutes);
 // ⚠️ 로컬 uploads 폴더는 이제 사용하지 않음
 // app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// ✅ ⚠️ 404 핸들러는 항상 “맨 마지막에” 둬야 함
+// ✅ 404 핸들러 (맨 마지막)
 app.use((req, res) => {
   res.status(404).json({ message: "요청한 API를 찾을 수 없습니다." });
 });
@@ -56,4 +67,5 @@ app.use((req, res) => {
 // ✅ 서버 실행
 app.listen(PORT, () => {
   console.log(`🚀 Server running: http://localhost:${PORT}`);
+  console.log(`✅ CORS Origin: ${FRONT_ORIGIN}`);
 });

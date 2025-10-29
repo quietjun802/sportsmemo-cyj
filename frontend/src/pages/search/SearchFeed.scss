@@ -1,23 +1,143 @@
 .search-feed {
-  padding-top: 100px;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f9fbff 0%, #ffffff 100%);
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  align-items: center;
 
+  /* ✅ 상단 네비게이션 */
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    border-bottom: 1px solid #e6e9ee;
+    z-index: 20;
+
+    /* ✅ 좌측 로고 */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 1.45rem;
+
+      .logo-icon {
+        font-size: 1.7rem;
+        line-height: 1;
+      }
+
+      .logo-text {
+        color: #0078ff;
+        letter-spacing: -0.3px;
+      }
+
+      .user-name {
+        font-size: 0.95rem;
+        color: #444;
+        font-weight: 500;
+        margin-left: 6px;
+      }
+    }
+
+    /* ✅ 우측 로그아웃 버튼 */
+    .logout-btn {
+      background: #0078ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0, 120, 255, 0.2);
+
+      &:hover {
+        background: #0062d9;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  /* ✅ 메인 콘텐츠 중앙 정렬 */
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 140px; /* 헤더 높이 확보 */
+    padding-bottom: 100px;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ✅ 제목 / 설명 / 돌아가기 버튼 */
+  .search-header {
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .back-btn {
+      background: rgba(0, 120, 255, 0.08);
+      border: none;
+      border-radius: 25px;
+      color: #0078ff;
+      font-weight: 600;
+      padding: 8px 20px;
+      cursor: pointer;
+      transition: 0.25s ease;
+
+      &:hover {
+        background: #0078ff;
+        color: #fff;
+      }
+    }
+  }
+
+  /* ✅ 검색창 */
   .player-search {
     position: relative;
     display: inline-block;
-    width: 300px;
+    width: 340px;
+    margin-bottom: 40px;
 
     .search-input {
       width: 100%;
-      padding: 1rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-s);
-      background: var(--surface);
-      color: var(--text);
+      padding: 1rem 1.2rem;
+      border: 1px solid #d7e3f0;
+      border-radius: 12px;
+      background: #fff;
+      font-size: 1rem;
+      color: #222;
+      transition: 0.25s;
 
       &:focus {
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(35, 155, 235, 0.2);
+        border-color: #0078ff;
+        box-shadow: 0 0 0 4px rgba(0, 120, 255, 0.15);
         outline: none;
       }
     }
@@ -27,63 +147,105 @@
       top: 105%;
       left: 0;
       right: 0;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-s);
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-      max-height: 180px;
+      background: #fff;
+      border: 1px solid #dfe8f2;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      max-height: 220px;
       overflow-y: auto;
-      z-index: 10;
+      z-index: 15;
 
       li {
-        padding: 0.8rem 1rem;
-        cursor: pointer;
+        padding: 0.9rem 1rem;
         text-align: left;
+        font-size: 0.95rem;
+        color: #333;
+        cursor: pointer;
+        transition: background 0.15s ease;
 
         &:hover {
-          background: var(--primary);
-          color: var(--primary-contrast);
+          background: #0078ff;
+          color: #fff;
         }
       }
     }
   }
 
+  /* ✅ 검색 결과 카드 */
   .feed-list {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 24px;
+
+    .feed-card {
+      background: #fff;
+      border: 1px solid #e6e9ee;
+      border-radius: 12px;
+      width: 280px;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      transition: 0.25s;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        object-fit: cover;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 0.6rem;
+      }
+
+      small {
+        color: #888;
+        font-size: 0.85rem;
+      }
+    }
   }
 
-  .feed-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-s);
-    width: 280px;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /* ✅ 로고 반응형 및 모바일 대응 */
+  @media (max-width: 768px) {
+    .top-bar {
+      padding: 0 20px;
 
-    img {
+      .logo {
+        font-size: 1.3rem;
+        gap: 6px;
+
+        .logo-icon {
+          font-size: 1.5rem;
+        }
+      }
+
+      .logout-btn {
+        padding: 6px 14px;
+        font-size: 0.9rem;
+      }
+    }
+
+    .content {
+      padding-top: 120px;
+      max-width: 90%;
+    }
+
+    .player-search {
       width: 100%;
-      border-radius: var(--radius-s);
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1.3rem;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
-
-    small {
-      color: var(--muted);
     }
   }
 }

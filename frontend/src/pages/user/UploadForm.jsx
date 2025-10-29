@@ -115,9 +115,10 @@ const UploadForm = ({ selectedPlayer }) => {
 
       const res = await fetch("http://localhost:3000/api/upload", {
         method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
         body: formData,
+        credentials: "include", // ✅ 쿠키 전송 (가장 중요)
       });
+
 
       if (!res.ok) throw new Error("업로드 실패");
       const data = await res.json();

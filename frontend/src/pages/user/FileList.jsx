@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./style/FileList.scss";
 
-const FileList = () => {
+const FileList = ({ endpoint = "/api/posts/my" }) => {
   const [posts, setPosts] = useState([]);
   const [editingPost, setEditingPost] = useState(null);
   const [editData, setEditData] = useState({ title: "", description: "", player: "" });
 
-  // ✅ 로그인 유저 정보 안전하게 불러오기
+  // ✅ 로컬 유저 정보 (화면에서 구분용)
   const user = JSON.parse(localStorage.getItem("user") || "null");
-  const token = localStorage.getItem("token");
 
   // ✅ 게시글 불러오기
   const fetchPosts = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/files");
+      const res = await fetch(`http://localhost:3000${endpoint}`, {
+        credentials: "include", // ✅ 쿠키 기반 인증
+      });
       if (!res.ok) throw new Error("게시글 조회 실패");
       const data = await res.json();
       setPosts(data);
@@ -24,7 +25,7 @@ const FileList = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [endpoint]);
 
   // ✅ 게시글 삭제
   const handleDelete = async (id) => {
@@ -33,21 +34,14 @@ const FileList = () => {
     try {
       const res = await fetch(`http://localhost:3000/api/files/${id}`, {
         method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        credentials: "include", // ✅ 쿠키로 인증
       });
-
-      const data = await res.json();
 
       if (res.ok) {
         alert("✅ 삭제 완료");
         fetchPosts();
-      } else if (res.status === 401) {
-        alert("⚠️ 로그인 정보가 만료되었습니다. 다시 로그인해주세요.");
-        localStorage.clear();
-        window.location.href = "/login";
       } else {
+        const data = await res.json();
         alert(`❌ 삭제 실패: ${data.message || "권한 없음 또는 서버 오류"}`);
       }
     } catch (err) {
@@ -71,24 +65,17 @@ const FileList = () => {
     try {
       const res = await fetch(`http://localhost:3000/api/files/${id}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { "Content-Type": "application/json" },
+        credentials: "include", // ✅ 쿠키로 인증
         body: JSON.stringify(editData),
       });
-
-      const data = await res.json();
 
       if (res.ok) {
         alert("✅ 수정 완료");
         setEditingPost(null);
         fetchPosts();
-      } else if (res.status === 401) {
-        alert("⚠️ 로그인 세션이 만료되었습니다. 다시 로그인해주세요.");
-        localStorage.clear();
-        window.location.href = "/login";
       } else {
+        const data = await res.json();
         alert(`❌ 수정 실패: ${data.message || "권한 없음 또는 서버 오류"}`);
       }
     } catch (err) {
@@ -102,7 +89,7 @@ const FileList = () => {
       {posts.length === 0 && <p className="filelist-msg">게시글이 없습니다 🥲</p>}
 
       {posts.map((post) => {
-        const isMine = user && post.authorEmail && post.authorEmail === user.email; // ✅ 비교 확실히
+        const isMine = user && post.authorEmail === user.email;
 
         return (
           <div key={post._id} className="file-card">

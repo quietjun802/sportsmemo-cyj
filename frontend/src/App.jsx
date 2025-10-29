@@ -29,7 +29,7 @@ function App() {
   const isAuthed = !!token;
 
   // ✅ 헤더 표시 조건
-  const hideOn = new Set(["/", "/admin/login"]);
+  const hideOn = new Set(["/", "/admin/login", "/search"]); // ✅ SearchFeed 페이지에서는 헤더 숨김
   const showHeader = isAuthed && !hideOn.has(location.pathname);
 
   // ✅ 로그인 후 처리
@@ -115,12 +115,10 @@ function App() {
           <Route path="dashboard" element={<UserDashboard />} />
         </Route>
 
-        {/* ✅ 검색 페이지 (ProtectRoute 제거 / 로그인 조건부 렌더링) */}
+        {/* ✅ 검색 페이지 (Header 숨김, 내부에서 자체 top-bar 렌더링) */}
         <Route
           path="/search"
-          element={
-            isAuthed ? <SearchFeed /> : <Navigate to="/" replace />
-          }
+          element={isAuthed ? <SearchFeed /> : <Navigate to="/" replace />}
         />
 
         {/* ✅ 관리자 보호 구역 */}

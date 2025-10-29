@@ -23,7 +23,7 @@ const Header = ({
         <header className='site-header'>
             <div className="inner">
                 <h1 className='logo'>
-                    📷Photomemo
+                    ⚽️Photomemo
                 </h1>
                 <div className="auth-area">
                     {isAuthed && (

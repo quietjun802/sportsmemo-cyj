@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import UploadForm from "./UploadForm";
 import FileList from "./FileList";
+import api from "../../api/client.js"; // ✅ 경로 수정
 import "./style/UserDashboard.scss";
 
 const UserDashboard = () => {
@@ -21,9 +22,9 @@ const UserDashboard = () => {
         <UploadForm />
       </section>
 
-      {/* 내 피드 */}
+      {/* ✅ 내 피드 */}
       <section className="dashboard-section feed-section">
-        <FileList showAllUsers={false} />
+        <FileList showAllUsers={false} endpoint="/api/posts/my" />
       </section>
     </div>
   );
