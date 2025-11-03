@@ -11,9 +11,6 @@ const SearchFeed = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
-  // ✅ 유저 정보 불러오기 (상단 표시용)
-  const user = JSON.parse(localStorage.getItem("user") || "null");
-
   // ✅ CSV 불러오기
   useEffect(() => {
     fetch("/data/premier_league_players_ko.csv")
@@ -94,27 +91,9 @@ const SearchFeed = () => {
       .catch((err) => console.error("❌ 게시글 불러오기 실패:", err));
   }, [selectedPlayer]);
 
-  // ✅ 로그아웃
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
-  };
-
   return (
     <section className="search-feed">
-      {/* ✅ 상단 네비게이션 */}
-      <div className="top-bar">
-        <div className="logo">
-          <span className="logo-icon">⚽️</span>
-          <span className="logo-text">Photomemo</span>
-          {user && <span className="user-name">{user.displayname}</span>}
-        </div>
-        <button className="logout-btn" onClick={handleLogout}>
-          로그아웃
-        </button>
-      </div>
-
-      {/* ✅ 메인 콘텐츠 중앙정렬 */}
+      {/* ✅ 메인 콘텐츠 */}
       <div className="content">
         <header className="search-header">
           <h1>선수별 포토메모 피드</h1>

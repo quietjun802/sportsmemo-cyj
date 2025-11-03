@@ -1,30 +1,57 @@
+.dashboard-container {
+  /* 🔽 헤더 여백 조정 (기존 16rem → 10rem) */
+  padding-top: 10rem !important;
+  padding-bottom: 6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+
+  /* 📱 모바일에서는 좀 더 붙이기 */
+  @media (max-width: 768px) {
+    padding-top: 8rem !important;
+  }
+}
+
+/* ✅ 중앙 정렬 헤더 (인스타 피드 느낌 유지) */
 .dashboard-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1000px;
-  margin-bottom: 20px;
+  justify-content: center;
+  gap: 1rem; /* 제목과 버튼 간격 살짝 좁힘 */
+  margin-bottom: 2.8rem; /* 아래 간격 살짝 줄임 */
+  text-align: center;
 
   h1 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     font-weight: 700;
     color: var(--primary);
   }
 
   .search-btn {
     background: var(--primary);
-    color: #fff;
+    color: var(--primary-contrast);
     border: none;
     border-radius: var(--radius-s);
-    padding: 0.8rem 1.4rem;
-    font-size: 1.4rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
+
     &:hover {
-      background: var(--secondary);
+      opacity: 0.9;
       transform: scale(1.05);
     }
   }
+}
+
+/* ✅ 카드 리스트 간격 */
+.feed-section {
+  margin-top: 2.4rem; /* 약간 줄여서 전체 균형 맞춤 */
 }

@@ -1,13 +1,18 @@
 .file-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 40px;
-  justify-content: center;
+  display: grid;
+  width: 100%; /* ✅ 부모가 좁아도 전체 너비 사용 */
+  max-width: 1200px; /* ✅ 중앙에 고정된 전체 폭 */
+  margin: 40px auto 0;
+  padding: 0 20px;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ✅ 자동 3열 */
+  gap: 24px;
+  justify-items: center; /* ✅ 가운데 정렬 */
 }
 
+/* ✅ 카드 */
 .file-card {
-  width: 280px;
+  width: 100%;
   border: 1px solid var(--border, #ddd);
   border-radius: 12px;
   background: var(--surface, #fff);
@@ -23,7 +28,7 @@
 
 .file-image {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -60,6 +65,7 @@
   color: #666;
   margin-top: 40px;
 }
+
 .file-actions {
   display: flex;
   justify-content: flex-end;
@@ -80,11 +86,15 @@
   }
 }
 
-.file-info input,
-.file-info textarea {
-  width: 100%;
-  padding: 6px;
-  margin-bottom: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+/* ✅ 반응형 */
+@media screen and (max-width: 1024px) {
+  .file-list {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .file-list {
+    grid-template-columns: 1fr;
+  }
 }

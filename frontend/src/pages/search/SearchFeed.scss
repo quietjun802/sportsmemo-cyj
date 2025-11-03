@@ -6,98 +6,34 @@
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
   align-items: center;
 
-  /* ✅ 상단 네비게이션 */
-  .top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 64px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 60px;
-    border-bottom: 1px solid #e6e9ee;
-    z-index: 20;
-
-    /* ✅ 좌측 로고 */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 1.45rem;
-
-      .logo-icon {
-        font-size: 1.7rem;
-        line-height: 1;
-      }
-
-      .logo-text {
-        color: #0078ff;
-        letter-spacing: -0.3px;
-      }
-
-      .user-name {
-        font-size: 0.95rem;
-        color: #444;
-        font-weight: 500;
-        margin-left: 6px;
-      }
-    }
-
-    /* ✅ 우측 로그아웃 버튼 */
-    .logout-btn {
-      background: #0078ff;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 18px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0, 120, 255, 0.2);
-
-      &:hover {
-        background: #0062d9;
-        transform: translateY(-1px);
-      }
-    }
-  }
-
-  /* ✅ 메인 콘텐츠 중앙 정렬 */
+  /* ✅ 메인 콘텐츠 */
   .content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding-top: 140px; /* 헤더 높이 확보 */
-    padding-bottom: 100px;
     width: 100%;
-    max-width: 720px;
+    max-width: 1280px; /* 🔥 720 → 1280 으로 확장 */
     margin: 0 auto;
+    padding: 120px 40px 100px; /* 헤더 + 여백 */
     text-align: center;
   }
 
-  /* ✅ 제목 / 설명 / 돌아가기 버튼 */
+  /* ✅ 제목, 설명, 돌아가기 버튼 */
   .search-header {
-    margin-bottom: 40px;
+    margin-bottom: 3.5rem;
 
     h1 {
-      font-size: 2.3rem;
+      font-size: 2.4rem;
       font-weight: 800;
       color: #1a1a1a;
-      margin-bottom: 8px;
+      margin-bottom: 0.6rem;
     }
 
     p {
-      color: #666;
-      font-size: 1rem;
-      margin-bottom: 20px;
+      color: #555;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
       line-height: 1.6;
     }
 
@@ -107,7 +43,7 @@
       border-radius: 25px;
       color: #0078ff;
       font-weight: 600;
-      padding: 8px 20px;
+      padding: 10px 24px;
       cursor: pointer;
       transition: 0.25s ease;
 
@@ -122,16 +58,16 @@
   .player-search {
     position: relative;
     display: inline-block;
-    width: 340px;
+    width: 480px; /* 🔥 340 → 480 확장 */
     margin-bottom: 40px;
 
     .search-input {
       width: 100%;
-      padding: 1rem 1.2rem;
+      padding: 1.1rem 1.3rem;
       border: 1px solid #d7e3f0;
       border-radius: 12px;
       background: #fff;
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: #222;
       transition: 0.25s;
 
@@ -151,14 +87,14 @@
       border: 1px solid #dfe8f2;
       border-radius: 10px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-      max-height: 220px;
+      max-height: 260px;
       overflow-y: auto;
       z-index: 15;
 
       li {
-        padding: 0.9rem 1rem;
+        padding: 1rem 1.2rem;
         text-align: left;
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: #333;
         cursor: pointer;
         transition: background 0.15s ease;
@@ -171,79 +107,98 @@
     }
   }
 
-  /* ✅ 검색 결과 카드 */
-  .feed-list {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
+  /* ✅ 검색 결과 섹션 */
+  .search-result-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
 
-    .feed-card {
-      background: #fff;
-      border: 1px solid #e6e9ee;
-      border-radius: 12px;
-      width: 280px;
-      padding: 1rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-      transition: 0.25s;
+  /* ✅ 피드 카드 리스트 */
+.feed-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 🔥 3열 고정 */
+  gap: 2.4rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
 
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      }
+  .feed-card {
+    background: #fff;
+    border: 1px solid #e6e9ee;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 340px; /* 카드 폭 살짝 확대 */
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: 0.25s;
 
-      img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-        object-fit: cover;
-      }
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+    }
 
-      h3 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 0.4rem;
-      }
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
 
-      p {
-        font-size: 0.95rem;
-        color: #666;
-        margin-bottom: 0.6rem;
-      }
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
 
-      small {
-        color: #888;
-        font-size: 0.85rem;
-      }
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+
+    small {
+      color: #888;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+  /* ✅ 빈 결과 안내 */
+  .search-placeholder {
+    color: #777;
+    font-size: 1.1rem;
+    margin-top: 3rem;
+  }
+
+  /* ✅ 반응형 */
+  @media (max-width: 1024px) {
+    .content {
+      max-width: 90%;
+      padding: 100px 20px 80px;
+    }
+
+    .player-search {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .feed-list {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.8rem;
     }
   }
 
-  /* ✅ 로고 반응형 및 모바일 대응 */
-  @media (max-width: 768px) {
-    .top-bar {
-      padding: 0 20px;
-
-      .logo {
-        font-size: 1.3rem;
-        gap: 6px;
-
-        .logo-icon {
-          font-size: 1.5rem;
-        }
-      }
-
-      .logout-btn {
-        padding: 6px 14px;
-        font-size: 0.9rem;
-      }
+  @media (max-width: 600px) {
+    .search-header h1 {
+      font-size: 1.8rem;
     }
-
-    .content {
-      padding-top: 120px;
-      max-width: 90%;
-    }
-
     .player-search {
       width: 100%;
     }

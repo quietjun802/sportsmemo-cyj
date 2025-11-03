@@ -121,8 +121,8 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
                 </>
               ) : (
                 <>
-                  <h3 className="file-title">{post.title}</h3>
                   <p className="file-player">⚽ {post.player}</p>
+                  <h3 className="file-title">{post.title}</h3>
                   <p className="file-desc">{post.description}</p>
                   <p className="file-author">✍ {post.authorName}</p>
 

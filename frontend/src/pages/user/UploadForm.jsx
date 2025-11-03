@@ -69,7 +69,6 @@ const UploadForm = ({ selectedPlayer }) => {
     const keyword = player.toLowerCase().trim();
     if (!keyword) return;
 
-    // 전체 CSV에서 일치 항목 검색
     const match = players.find((p) => {
       const ko = p.player_name_ko?.toLowerCase() || "";
       const en = p.player_name?.toLowerCase() || "";
@@ -81,8 +80,29 @@ const UploadForm = ({ selectedPlayer }) => {
       setPlayer(full);
     }
 
-    // 살짝 딜레이 후 리스트 닫기
     setTimeout(() => setFiltered([]), 100);
+  };
+
+  // ✅ 제목 입력 제한 (20자)
+  const handleTitleChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 20) {
+      setTitle(value);
+    } else {
+      setTitle(value.slice(0, 20)); // 자동 잘림
+      setMessage("⚠ 제목은 최대 20자까지만 입력할 수 있습니다.");
+    }
+  };
+
+  // ✅ 설명 입력 제한 (300자)
+  const handleDescriptionChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 300) {
+      setDescription(value);
+    } else {
+      setDescription(value.slice(0, 300)); // 자동 잘림
+      setMessage("⚠ 설명은 최대 300자까지만 입력할 수 있습니다.");
+    }
   };
 
   // ✅ 업로드 처리
@@ -94,11 +114,8 @@ const UploadForm = ({ selectedPlayer }) => {
       return;
     }
 
-    // 🔍 정확히 일치하는 선수만 허용
     const matched = players.find(
-      (p) =>
-        p.player_name_ko === player ||
-        p.player_name === player
+      (p) => p.player_name_ko === player || p.player_name === player
     );
 
     if (!matched) {
@@ -116,9 +133,8 @@ const UploadForm = ({ selectedPlayer }) => {
       const res = await fetch("http://localhost:3000/api/upload", {
         method: "POST",
         body: formData,
-        credentials: "include", // ✅ 쿠키 전송 (가장 중요)
+        credentials: "include",
       });
-
 
       if (!res.ok) throw new Error("업로드 실패");
       const data = await res.json();
@@ -143,22 +159,20 @@ const UploadForm = ({ selectedPlayer }) => {
   return (
     <form className="upload-form" onSubmit={handleSubmit}>
       <div className="upload-row">
-        {/* 파일 선택 */}
         <label className="upload-label">
           <span>파일 선택</span>
           <input type="file" onChange={(e) => setFile(e.target.files[0])} />
           <span className="file-name">{file ? file.name : "파일없음"}</span>
         </label>
 
-        {/* ✅ 자동완성 입력 */}
         <div className="player-search">
           <input
             type="text"
             placeholder="선수 이름 (자동완성)"
             value={player}
             onChange={(e) => setPlayer(e.target.value)}
-            onKeyDown={handleKeyDown}     // ✅ 엔터 자동확정
-            onBlur={handleBlur}           // ✅ 블러 자동보정 (CSV 전역 검색)
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
             className="upload-input"
             autoComplete="off"
           />
@@ -180,28 +194,30 @@ const UploadForm = ({ selectedPlayer }) => {
           )}
         </div>
 
-        {/* 제목 */}
         <input
           type="text"
-          placeholder="제목"
+          placeholder="제목 (최대 20자)"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={handleTitleChange}
           className="upload-input"
+          maxLength={20}
         />
 
-        {/* 업로드 버튼 */}
         <button type="submit" className="upload-btn">
           업로드
         </button>
       </div>
 
-      {/* 설명 */}
       <div className="upload-description">
         <textarea
-          placeholder="설명"
+          placeholder="내용 (최대 300자)"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handleDescriptionChange}
+          maxLength={300}
         />
+        <div className="char-counter">
+          {description.length} / 300
+        </div>
       </div>
 
       {message && <p className="upload-msg">{message}</p>}

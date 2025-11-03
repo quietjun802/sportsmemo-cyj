@@ -1,27 +1,50 @@
-.site-header{
-    position: sticky;
-    top: 0;
-    z-index: 0;
-    .inner{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 0.1rem solid var(--border);
+  padding: 1.6rem 3rem;
 
-        h1.logo{
-            font-weight: 700;
-            font-size: 3.4rem;
-            color: var(--primary);
-        }
+  .inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-        .auth-area{
-            .welcome{
-                display: inline-block;
-                font-size: 1.4rem;
-                color: var(--muted);
-            }
-            .btn{
-                margin-left: 1rem;
-            }
-        }
+  h1.logo {
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: var(--primary);
+    cursor: pointer;
+  }
+
+  .auth-area {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* 🔼 기존 1rem → 2rem (이름과 버튼 여유 간격) */
+
+    .welcome {
+      font-size: 1.4rem;
+      color: var(--muted);
     }
+
+    .btn.logout {
+      background: var(--primary);
+      color: var(--primary-contrast);
+      border: none;
+      border-radius: var(--radius-s);
+      padding: 0.6rem 1.2rem;
+      font-weight: 500;
+      font-size: 1.4rem;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
 }

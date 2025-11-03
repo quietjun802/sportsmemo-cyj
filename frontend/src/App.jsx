@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import ProtectRoute from "./components/ProtectRoute";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import UserDashboard from "./pages/user/UserDashboard";
-import SearchFeed from "./pages/search/SearchFeed"; // ✅ 검색 페이지 추가
+import SearchFeed from "./pages/search/SearchFeed";
 
 import {
   fetchMe as apifetchMe,
@@ -19,20 +19,21 @@ import {
 function App() {
   const location = useLocation();
 
+  // ✅ 사용자 / 토큰 / 내 정보 상태 관리
   const [user, setUser] = useState(() => {
     const raw = localStorage.getItem("user");
     return raw ? JSON.parse(raw) : null;
   });
-
   const [token, setToken] = useState(() => localStorage.getItem("token"));
   const [me, setMe] = useState(null);
   const isAuthed = !!token;
 
-  // ✅ 헤더 표시 조건
-  const hideOn = new Set(["/", "/admin/login", "/search"]); // ✅ SearchFeed 페이지에서는 헤더 숨김
+  // ✅ 헤더 표시 여부
+  // 🔥 '/search' 제거해서 검색 페이지에서도 Photomemo 헤더 표시되도록 수정
+  const hideOn = new Set(["/", "/admin/login"]);
   const showHeader = isAuthed && !hideOn.has(location.pathname);
 
-  // ✅ 로그인 후 처리
+  // ✅ 로그인 성공 시 처리
   const HandleAuthed = async ({ user, token }) => {
     try {
       setUser(user);
@@ -40,7 +41,7 @@ function App() {
       saveAuthToStorage({ user, token });
       handleFetchMe();
     } catch (error) {
-      console.error(error);
+      console.error("로그인 처리 오류:", error);
     }
   };
 
@@ -49,7 +50,7 @@ function App() {
     try {
       await apilogout();
     } catch (error) {
-      console.error(error);
+      console.error("로그아웃 오류:", error);
     } finally {
       setUser(null);
       setToken(null);
@@ -64,24 +65,25 @@ function App() {
       const { user } = await apifetchMe();
       setMe(user);
     } catch (error) {
+      console.error("내정보 조회 실패:", error);
       setMe({ error: "내정보 조회 실패" });
-      console.error(error);
     }
   };
 
+  // ✅ 인증 상태 변경 시 내정보 불러오기
   useEffect(() => {
     if (isAuthed) handleFetchMe();
   }, [isAuthed]);
 
   return (
     <div className="page">
-      {/* ✅ 로그인된 상태에서만 헤더 표시 */}
+      {/* ✅ 상단 Photomemo 헤더 (검색 페이지 포함 표시) */}
       {showHeader && (
         <Header isAuthed={isAuthed} user={user} onLogout={handleLogout} />
       )}
 
       <Routes>
-        {/* ✅ 비로그인 사용자 */}
+        {/* ✅ 비로그인 홈 */}
         <Route path="/" element={<Landing />} />
 
         {/* ✅ 관리자 로그인 */}
@@ -115,7 +117,7 @@ function App() {
           <Route path="dashboard" element={<UserDashboard />} />
         </Route>
 
-        {/* ✅ 검색 페이지 (Header 숨김, 내부에서 자체 top-bar 렌더링) */}
+        {/* ✅ 검색 페이지 (이제 Photomemo 헤더가 자동 표시됨) */}
         <Route
           path="/search"
           element={isAuthed ? <SearchFeed /> : <Navigate to="/" replace />}
