@@ -1,0 +1,79 @@
+.admin-dashboard {
+    min-height: 100vh;
+    background: #f9fbff;
+    padding: 60px 80px;
+    font-family: "Pretendard", "Noto Sans KR", sans-serif;
+
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: 15px;
+        color: #666;
+        margin-bottom: 40px;
+    }
+
+    /* 🔹 가로형 관리자 메뉴 */
+    .admin-menu-row {
+        display: flex;
+        justify-content: center;
+        /* 중앙 정렬 */
+        align-items: stretch;
+        gap: 30px;
+        flex-wrap: nowrap;
+        /* ✅ 줄바꿈 방지 */
+        overflow-x: auto;
+        /* ✅ 공간 부족 시 가로 스크롤 */
+        padding-bottom: 10px;
+    }
+
+    .menu-card {
+        flex: 1 1 280px;
+        max-width: 340px;
+        background: #fff;
+        border: 1px solid #e6e9ee;
+        border-radius: 14px;
+        padding: 28px 24px;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        transition: all 0.25s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0077ff;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #777;
+        }
+    }
+
+    /* 🔸 반응형 대응 */
+    @media (max-width: 768px) {
+        padding: 40px 20px;
+
+        .admin-menu-row {
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .menu-card {
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+}

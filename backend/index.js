@@ -56,6 +56,13 @@ app.use("/api/files", fileRoutes);
 const postRoutes = require("./routes/posts");
 app.use("/api/posts", postRoutes);
 
+// ✅ Admin Routes (관리자 전용)
+const adminRoutes = require("./routes/admin");
+app.use("/api/admin", adminRoutes);
+// ✅ Admin File Routes (관리자 전용)
+const adminPostRoutes = require("./routes/adminPosts");
+app.use("/api/admin", adminPostRoutes);
+
 // ⚠️ 로컬 uploads 폴더는 이제 사용하지 않음
 // app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 

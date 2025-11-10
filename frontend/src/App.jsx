@@ -6,6 +6,8 @@ import Landing from "./pages/Landing";
 import Header from "./components/Header";
 import ProtectRoute from "./components/ProtectRoute";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminPosts from "./pages/admin/AdminPosts"; // ✅ 게시글 관리 추가
 import UserDashboard from "./pages/user/UserDashboard";
 import SearchFeed from "./pages/search/SearchFeed";
 
@@ -19,17 +21,17 @@ import {
 function App() {
   const location = useLocation();
 
-  // ✅ 사용자 / 토큰 / 내 정보 상태 관리
   const [user, setUser] = useState(() => {
     const raw = localStorage.getItem("user");
     return raw ? JSON.parse(raw) : null;
   });
+
   const [token, setToken] = useState(() => localStorage.getItem("token"));
   const [me, setMe] = useState(null);
-  const isAuthed = !!token;
 
-  // ✅ 헤더 표시 여부
-  // 🔥 '/search' 제거해서 검색 페이지에서도 Photomemo 헤더 표시되도록 수정
+  // ✅ 토큰 OR 사용자 객체 존재 시 로그인 상태로 인식
+  const isAuthed = !!(token || user);
+
   const hideOn = new Set(["/", "/admin/login"]);
   const showHeader = isAuthed && !hideOn.has(location.pathname);
 
@@ -70,14 +72,12 @@ function App() {
     }
   };
 
-  // ✅ 인증 상태 변경 시 내정보 불러오기
   useEffect(() => {
     if (isAuthed) handleFetchMe();
   }, [isAuthed]);
 
   return (
     <div className="page">
-      {/* ✅ 상단 Photomemo 헤더 (검색 페이지 포함 표시) */}
       {showHeader && (
         <Header isAuthed={isAuthed} user={user} onLogout={handleLogout} />
       )}
@@ -117,7 +117,7 @@ function App() {
           <Route path="dashboard" element={<UserDashboard />} />
         </Route>
 
-        {/* ✅ 검색 페이지 (이제 Photomemo 헤더가 자동 표시됨) */}
+        {/* ✅ 검색 페이지 */}
         <Route
           path="/search"
           element={isAuthed ? <SearchFeed /> : <Navigate to="/" replace />}
@@ -136,6 +136,8 @@ function App() {
         >
           <Route index element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="posts" element={<AdminPosts />} /> {/* ✅ 추가 완료 */}
         </Route>
 
         {/* ✅ 기본 리다이렉트 */}
