@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./style/FileList.scss";
 
 const FileList = ({ endpoint = "/api/posts/my" }) => {
   const [posts, setPosts] = useState([]);
   const [editingPost, setEditingPost] = useState(null);
-  const [editData, setEditData] = useState({ title: "", description: "", player: "" });
+  const [editData, setEditData] = useState({
+    title: "",
+    description: "",
+    player: "",
+  });
 
-  // ✅ 로컬 유저 정보 (화면에서 구분용)
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user") || "null");
 
   // ✅ 게시글 불러오기
   const fetchPosts = async () => {
     try {
       const res = await fetch(`http://localhost:3000${endpoint}`, {
-        credentials: "include", // ✅ 쿠키 기반 인증
+        credentials: "include",
       });
       if (!res.ok) throw new Error("게시글 조회 실패");
       const data = await res.json();
@@ -27,14 +32,14 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
     fetchPosts();
   }, [endpoint]);
 
-  // ✅ 게시글 삭제
+  // ✅ 삭제
   const handleDelete = async (id) => {
     if (!window.confirm("정말 삭제하시겠습니까?")) return;
 
     try {
       const res = await fetch(`http://localhost:3000/api/files/${id}`, {
         method: "DELETE",
-        credentials: "include", // ✅ 쿠키로 인증
+        credentials: "include",
       });
 
       if (res.ok) {
@@ -50,7 +55,7 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
     }
   };
 
-  // ✅ 수정 모드 전환
+  // ✅ 수정 모드 진입
   const handleEdit = (post) => {
     setEditingPost(post._id);
     setEditData({
@@ -66,7 +71,7 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
       const res = await fetch(`http://localhost:3000/api/files/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", // ✅ 쿠키로 인증
+        credentials: "include",
         body: JSON.stringify(editData),
       });
 
@@ -84,34 +89,62 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
     }
   };
 
+  // ✅ 상세 페이지 이동 (대시보드에서 들어왔다는 정보 같이 전달)
+  const handleNavigate = (id) => {
+    navigate(`/user/post/${id}`, { state: { fromDashboard: true } }); // ✅ 수정된 부분
+  };
+
   return (
     <section className="file-list">
       {posts.length === 0 && <p className="filelist-msg">게시글이 없습니다 🥲</p>}
 
       {posts.map((post) => {
         const isMine = user && post.authorEmail === user.email;
+        const isEditing = editingPost === post._id;
 
         return (
-          <div key={post._id} className="file-card">
-            <img src={post.imageUrl} alt={post.title} className="file-image" />
+          <div
+            key={post._id}
+            className={`file-card ${isEditing ? "editing" : ""}`}
+          >
+            {/* ✅ 클릭 시 상세 페이지 이동 */}
+            {!isEditing && (
+              <div
+                className="file-click-area"
+                onClick={() => handleNavigate(post._id)}
+              >
+                <img
+                  src={post.imageUrl}
+                  alt={post.title}
+                  className="file-image"
+                />
+              </div>
+            )}
+
             <div className="file-info">
-              {editingPost === post._id ? (
+              {isEditing ? (
                 <>
                   <input
                     type="text"
                     value={editData.title}
-                    onChange={(e) => setEditData({ ...editData, title: e.target.value })}
+                    onChange={(e) =>
+                      setEditData({ ...editData, title: e.target.value })
+                    }
                     placeholder="제목 수정"
                   />
                   <input
                     type="text"
                     value={editData.player}
-                    onChange={(e) => setEditData({ ...editData, player: e.target.value })}
+                    onChange={(e) =>
+                      setEditData({ ...editData, player: e.target.value })
+                    }
                     placeholder="선수 이름 수정"
                   />
                   <textarea
                     value={editData.description}
-                    onChange={(e) => setEditData({ ...editData, description: e.target.value })}
+                    onChange={(e) =>
+                      setEditData({ ...editData, description: e.target.value })
+                    }
                     placeholder="설명 수정"
                   />
                   <div className="file-actions">

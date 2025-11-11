@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Papa from "papaparse";
 import "./SearchFeed.scss";
 
@@ -10,13 +10,15 @@ const SearchFeed = () => {
   const [selectedPlayer, setSelectedPlayer] = useState("");
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // ✅ CSV 불러오기
+  // ✅ CSV 불러오기 먼저 완료
   useEffect(() => {
     fetch("/data/premier_league_players_ko.csv")
       .then((res) => res.text())
       .then((text) => {
         const result = Papa.parse(text, { header: true });
+        console.log("🔥 CSV 첫 행:", result.data[0]);
         const clean = result.data.filter(
           (p) => p.player_name || p.player_name_ko
         );
@@ -24,6 +26,16 @@ const SearchFeed = () => {
       })
       .catch((err) => console.error("CSV 불러오기 실패:", err));
   }, []);
+
+  // ✅ Header에서 전달된 검색어 반영 (CSV가 다 로드된 뒤에)
+  useEffect(() => {
+    if (!players.length) return; // ⚠️ CSV 로드 전엔 실행하지 않음
+    const initialKeyword = location.state?.initialKeyword || "";
+    if (initialKeyword) {
+      setKeyword(initialKeyword);
+      setSelectedPlayer(initialKeyword);
+    }
+  }, [players, location.state]);
 
   // ✅ 자동완성 필터링
   useEffect(() => {
@@ -38,6 +50,7 @@ const SearchFeed = () => {
       const en = p.player_name?.toLowerCase() || "";
       return ko.includes(lower) || en.includes(lower);
     });
+
     setFiltered(result.slice(0, 8));
   }, [keyword, players]);
 
@@ -49,7 +62,7 @@ const SearchFeed = () => {
     setFiltered([]);
   };
 
-  // ✅ Enter로 자동완성 선택
+  // ✅ 엔터로 자동완성 선택
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && filtered.length > 0) {
       e.preventDefault();
@@ -57,7 +70,7 @@ const SearchFeed = () => {
     }
   };
 
-  // ✅ Blur 시 자동보정
+  // ✅ 포커스 아웃 시 자동완성 닫기
   const handleBlur = () => {
     const lower = keyword.toLowerCase().trim();
     if (!lower) return;
@@ -77,10 +90,9 @@ const SearchFeed = () => {
     setTimeout(() => setFiltered([]), 100);
   };
 
-  // ✅ 선택된 선수 게시글 로드
+  // ✅ 게시글 로드
   useEffect(() => {
     if (!selectedPlayer) return;
-
     fetch(
       `http://localhost:3000/api/posts/player/${encodeURIComponent(
         selectedPlayer
@@ -91,18 +103,26 @@ const SearchFeed = () => {
       .catch((err) => console.error("❌ 게시글 불러오기 실패:", err));
   }, [selectedPlayer]);
 
+  const handleNavigate = (id) => {
+    navigate(`/user/post/${id}`, {
+      state: { fromSearch: true, selectedPlayer },
+    });
+  };
+
   return (
     <section className="search-feed">
-      {/* ✅ 메인 콘텐츠 */}
       <div className="content">
         <header className="search-header">
           <h1>선수별 포토메모 피드</h1>
           <p>
-            한글 또는 영어 이름으로 검색하면 해당 선수를 태그한 모든 유저의 글이
-            표시됩니다.
+            한글 또는 영어 이름으로 검색하면 해당 선수를 태그한 모든 유저의 글이 표시됩니다.
           </p>
-
-          <button className="back-btn" onClick={() => navigate("/user")}>
+          <button
+            className="back-btn"
+            onClick={() =>
+              navigate("/user", { state: { selectedPlayer } })
+            }
+          >
             ← 내 피드로 돌아가기
           </button>
         </header>
@@ -144,7 +164,11 @@ const SearchFeed = () => {
                 <p className="empty">등록된 포스트가 없습니다.</p>
               ) : (
                 posts.map((post) => (
-                  <div key={post._id} className="feed-card">
+                  <div
+                    key={post._id}
+                    className="feed-card"
+                    onClick={() => handleNavigate(post._id)}
+                  >
                     <img src={post.imageUrl} alt={post.title} />
                     <h3>{post.title}</h3>
                     <p>{post.description}</p>
@@ -155,7 +179,9 @@ const SearchFeed = () => {
             </div>
           </>
         ) : (
-          <p className="search-placeholder">검색할 선수를 입력해보세요 ⚽️</p>
+          <p className="search-placeholder">
+            검색할 선수를 입력해보세요 ⚽️
+          </p>
         )}
       </div>
     </section>

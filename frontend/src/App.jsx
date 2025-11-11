@@ -7,9 +7,10 @@ import Header from "./components/Header";
 import ProtectRoute from "./components/ProtectRoute";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminUsers from "./pages/admin/AdminUsers";
-import AdminPosts from "./pages/admin/AdminPosts"; // ✅ 게시글 관리 추가
+import AdminPosts from "./pages/admin/AdminPosts";
 import UserDashboard from "./pages/user/UserDashboard";
 import SearchFeed from "./pages/search/SearchFeed";
+import PostDetail from "./pages/user/PostDetail"; // ✅ 상세 페이지 import 추가
 
 import {
   fetchMe as apifetchMe,
@@ -29,13 +30,13 @@ function App() {
   const [token, setToken] = useState(() => localStorage.getItem("token"));
   const [me, setMe] = useState(null);
 
-  // ✅ 토큰 OR 사용자 객체 존재 시 로그인 상태로 인식
+  // ✅ 로그인 상태 확인
   const isAuthed = !!(token || user);
 
   const hideOn = new Set(["/", "/admin/login"]);
   const showHeader = isAuthed && !hideOn.has(location.pathname);
 
-  // ✅ 로그인 성공 시 처리
+  // ✅ 로그인 처리
   const HandleAuthed = async ({ user, token }) => {
     try {
       setUser(user);
@@ -61,7 +62,7 @@ function App() {
     }
   };
 
-  // ✅ 내 정보 조회
+  // ✅ 내정보 조회
   const handleFetchMe = async () => {
     try {
       const { user } = await apifetchMe();
@@ -115,6 +116,9 @@ function App() {
         >
           <Route index element={<Navigate to="/user/dashboard" replace />} />
           <Route path="dashboard" element={<UserDashboard />} />
+
+          {/* ✅ 게시글 상세 페이지 추가 */}
+          <Route path="post/:id" element={<PostDetail />} />
         </Route>
 
         {/* ✅ 검색 페이지 */}
@@ -137,7 +141,7 @@ function App() {
           <Route index element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="users" element={<AdminUsers />} />
-          <Route path="posts" element={<AdminPosts />} /> {/* ✅ 추가 완료 */}
+          <Route path="posts" element={<AdminPosts />} />
         </Route>
 
         {/* ✅ 기본 리다이렉트 */}
