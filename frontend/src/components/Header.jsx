@@ -63,24 +63,31 @@ const Header = ({ isAuthed, user, onLogout }) => {
   };
 
   // ✅ 키보드 입력 처리
-  const handleKeyDown = (e) => {
-    if (filtered.length === 0) return;
+  // ✅ 키보드 입력 처리
+const handleKeyDown = (e) => {
+  if (filtered.length === 0) return;
 
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setSelectedIndex((prev) => (prev + 1) % filtered.length);
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      setSelectedIndex((prev) => (prev - 1 + filtered.length) % filtered.length);
-    } else if (e.key === "Enter" || e.key === "Tab") {
-      e.preventDefault();
-      if (selectedIndex >= 0) {
-        handleSelectPlayer(filtered[selectedIndex]);
-      } else {
-        navigate("/search", { state: { initialKeyword: keyword.trim() } });
-      }
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    setSelectedIndex((prev) => (prev + 1) % filtered.length);
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    setSelectedIndex((prev) => (prev - 1 + filtered.length) % filtered.length);
+  } else if (e.key === "Enter" || e.key === "Tab") {
+    e.preventDefault();
+
+    // 🔹 선택된 항목이 없더라도 첫 번째 자동완성 결과를 사용
+    const targetPlayer =
+      selectedIndex >= 0 ? filtered[selectedIndex] : filtered[0];
+
+    if (targetPlayer) {
+      handleSelectPlayer(targetPlayer);
+    } else {
+      navigate("/search", { state: { initialKeyword: keyword.trim() } });
     }
-  };
+  }
+};
+
 
   // ✅ 검색 버튼으로 이동
   const handleSearch = (e) => {
