@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import "./style/UploadForm.scss";
 
-const API = import.meta.env.VITE_API_URL; // 🔥 추가된 부분 (Cloudtype API URL)
+const API = import.meta.env.VITE_API_URL; // 🔥 Cloudtype Backend URL
 
 const UploadForm = ({ selectedPlayer }) => {
   const [player, setPlayer] = useState("");
@@ -29,7 +29,7 @@ const UploadForm = ({ selectedPlayer }) => {
       .catch((err) => console.error("CSV 불러오기 실패:", err));
   }, []);
 
-  // ✅ 외부 선택 반영
+  // ✅ 외부에서 선수 선택받음
   useEffect(() => {
     if (selectedPlayer) setPlayer(selectedPlayer);
   }, [selectedPlayer]);
@@ -51,14 +51,14 @@ const UploadForm = ({ selectedPlayer }) => {
     setFiltered(result.slice(0, 8));
   }, [player, players]);
 
-  // ✅ 클릭 및 자동선택 처리
+  // 선수 선택
   const handleSelectPlayer = (p) => {
     const full = p.player_name_ko || p.player_name;
     setPlayer(full);
     setFiltered([]);
   };
 
-  // ✅ Enter 누르면 첫 번째 항목 자동 선택
+  // Enter로 자동완성 선택
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && filtered.length > 0) {
       e.preventDefault();
@@ -66,7 +66,7 @@ const UploadForm = ({ selectedPlayer }) => {
     }
   };
 
-  // ✅ Blur 시 자동 보정
+  // Blur 시 자동완성 정리
   const handleBlur = () => {
     const keyword = player.toLowerCase().trim();
     if (!keyword) return;
@@ -85,7 +85,7 @@ const UploadForm = ({ selectedPlayer }) => {
     setTimeout(() => setFiltered([]), 100);
   };
 
-  // ✅ 제목 입력 제한
+  // 제목 20자 제한
   const handleTitleChange = (e) => {
     const value = e.target.value;
     if (value.length <= 20) {
@@ -96,7 +96,7 @@ const UploadForm = ({ selectedPlayer }) => {
     }
   };
 
-  // ✅ 설명 입력 제한
+  // 설명 300자 제한
   const handleDescriptionChange = (e) => {
     const value = e.target.value;
     if (value.length <= 300) {
@@ -107,7 +107,7 @@ const UploadForm = ({ selectedPlayer }) => {
     }
   };
 
-  // ✅ 업로드 처리
+  // 업로드
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -132,7 +132,7 @@ const UploadForm = ({ selectedPlayer }) => {
       formData.append("description", description);
       formData.append("player", matched.player_name_ko || matched.player_name);
 
-      // 🔥 localhost 제거 — Cloudtype API로 전송
+      // 🔥 localhost 제거 — Cloudtype으로 업로드 요청
       const res = await fetch(`${API}/api/upload`, {
         method: "POST",
         body: formData,
@@ -218,9 +218,7 @@ const UploadForm = ({ selectedPlayer }) => {
           onChange={handleDescriptionChange}
           maxLength={300}
         />
-        <div className="char-counter">
-          {description.length} / 300
-        </div>
+        <div className="char-counter">{description.length} / 300</div>
       </div>
 
       {message && <p className="upload-msg">{message}</p>}

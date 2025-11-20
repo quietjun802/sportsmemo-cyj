@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style/FileList.scss";
 
-const API = import.meta.env.VITE_API_URL; // 🔥 추가됨
+const API = import.meta.env.VITE_API_URL; // 🔥 반드시 필요
 
 const FileList = ({ endpoint = "/api/posts/my" }) => {
   const [posts, setPosts] = useState([]);
@@ -98,7 +98,9 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
 
   return (
     <section className="file-list">
-      {posts.length === 0 && <p className="filelist-msg">게시글이 없습니다 🥲</p>}
+      {posts.length === 0 && (
+        <p className="filelist-msg">게시글이 없습니다 🥲</p>
+      )}
 
       {posts.map((post) => {
         const isMine = user && post.authorEmail === user.email;
@@ -152,7 +154,9 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
                     placeholder="설명 수정"
                   />
                   <div className="file-actions">
-                    <button onClick={() => handleUpdate(post._id)}>💾 저장</button>
+                    <button onClick={() => handleUpdate(post._id)}>
+                      💾 저장
+                    </button>
                     <button onClick={() => setEditingPost(null)}>취소</button>
                   </div>
                 </>
@@ -166,7 +170,9 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
                   {isMine && (
                     <div className="file-actions">
                       <button onClick={() => handleEdit(post)}>✏ 수정</button>
-                      <button onClick={() => handleDelete(post._id)}>🗑 삭제</button>
+                      <button onClick={() => handleDelete(post._id)}>
+                        🗑 삭제
+                      </button>
                     </div>
                   )}
                 </>
