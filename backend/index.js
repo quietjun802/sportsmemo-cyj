@@ -21,6 +21,11 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
 // ✅ 요청 파서
 app.use(express.json({ limit: "5mb" }));
 app.use(cookieParser());
@@ -76,3 +81,4 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running: http://localhost:${PORT}`);
   console.log(`✅ CORS Origin: ${FRONT_ORIGIN}`);
 });
+
