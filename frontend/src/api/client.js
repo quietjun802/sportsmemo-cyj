@@ -2,7 +2,7 @@ import axios from "axios";
 
 // ✅ API 기본 URL (환경 변수 없을 시 fallback)
 const BASE_URL =
-  import.meta.env.VITE_API_URL?.replace(/\/+$/, "") || "http://localhost:3000";
+  import.meta.env.VITE_API_URL?.replace(/\/+$/, "") || "import.meta.env.VITE_API_URL";
 
 // ✅ Axios 인스턴스 (쿠키 인증 기반)
 const api = axios.create({

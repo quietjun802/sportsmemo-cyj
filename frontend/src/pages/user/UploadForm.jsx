@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import "./style/UploadForm.scss";
 
+const API = import.meta.env.VITE_API_URL; // 🔥 추가된 부분 (Cloudtype API URL)
+
 const UploadForm = ({ selectedPlayer }) => {
   const [player, setPlayer] = useState("");
   const [players, setPlayers] = useState([]);
@@ -64,7 +66,7 @@ const UploadForm = ({ selectedPlayer }) => {
     }
   };
 
-  // ✅ Blur 시 자동 보정 (filtered 여부 상관없이 CSV 전체 탐색)
+  // ✅ Blur 시 자동 보정
   const handleBlur = () => {
     const keyword = player.toLowerCase().trim();
     if (!keyword) return;
@@ -83,24 +85,24 @@ const UploadForm = ({ selectedPlayer }) => {
     setTimeout(() => setFiltered([]), 100);
   };
 
-  // ✅ 제목 입력 제한 (20자)
+  // ✅ 제목 입력 제한
   const handleTitleChange = (e) => {
     const value = e.target.value;
     if (value.length <= 20) {
       setTitle(value);
     } else {
-      setTitle(value.slice(0, 20)); // 자동 잘림
+      setTitle(value.slice(0, 20));
       setMessage("⚠ 제목은 최대 20자까지만 입력할 수 있습니다.");
     }
   };
 
-  // ✅ 설명 입력 제한 (300자)
+  // ✅ 설명 입력 제한
   const handleDescriptionChange = (e) => {
     const value = e.target.value;
     if (value.length <= 300) {
       setDescription(value);
     } else {
-      setDescription(value.slice(0, 300)); // 자동 잘림
+      setDescription(value.slice(0, 300));
       setMessage("⚠ 설명은 최대 300자까지만 입력할 수 있습니다.");
     }
   };
@@ -130,7 +132,8 @@ const UploadForm = ({ selectedPlayer }) => {
       formData.append("description", description);
       formData.append("player", matched.player_name_ko || matched.player_name);
 
-      const res = await fetch("http://localhost:3000/api/upload", {
+      // 🔥 localhost 제거 — Cloudtype API로 전송
+      const res = await fetch(`${API}/api/upload`, {
         method: "POST",
         body: formData,
         credentials: "include",

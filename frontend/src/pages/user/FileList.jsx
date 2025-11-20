@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style/FileList.scss";
 
+const API = import.meta.env.VITE_API_URL; // 🔥 추가됨
+
 const FileList = ({ endpoint = "/api/posts/my" }) => {
   const [posts, setPosts] = useState([]);
   const [editingPost, setEditingPost] = useState(null);
@@ -17,7 +19,7 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
   // ✅ 게시글 불러오기
   const fetchPosts = async () => {
     try {
-      const res = await fetch(`http://localhost:3000${endpoint}`, {
+      const res = await fetch(`${API}${endpoint}`, {
         credentials: "include",
       });
       if (!res.ok) throw new Error("게시글 조회 실패");
@@ -37,7 +39,7 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
     if (!window.confirm("정말 삭제하시겠습니까?")) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/files/${id}`, {
+      const res = await fetch(`${API}/api/files/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -68,7 +70,7 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
   // ✅ 수정 저장
   const handleUpdate = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/files/${id}`, {
+      const res = await fetch(`${API}/api/files/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -89,9 +91,9 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
     }
   };
 
-  // ✅ 상세 페이지 이동 (대시보드에서 들어왔다는 정보 같이 전달)
+  // ✅ 상세 페이지 이동
   const handleNavigate = (id) => {
-    navigate(`/user/post/${id}`, { state: { fromDashboard: true } }); // ✅ 수정된 부분
+    navigate(`/user/post/${id}`, { state: { fromDashboard: true } });
   };
 
   return (
@@ -107,7 +109,6 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
             key={post._id}
             className={`file-card ${isEditing ? "editing" : ""}`}
           >
-            {/* ✅ 클릭 시 상세 페이지 이동 */}
             {!isEditing && (
               <div
                 className="file-click-area"
@@ -143,7 +144,10 @@ const FileList = ({ endpoint = "/api/posts/my" }) => {
                   <textarea
                     value={editData.description}
                     onChange={(e) =>
-                      setEditData({ ...editData, description: e.target.value })
+                      setEditData({
+                        ...editData,
+                        description: e.target.value,
+                      })
                     }
                     placeholder="설명 수정"
                   />

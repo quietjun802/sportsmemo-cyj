@@ -1,7 +1,11 @@
+// 🔥 수정본: 딱 필요한 부분만 수정
+
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Papa from "papaparse";
 import "./SearchFeed.scss";
+
+const API = import.meta.env.VITE_API_URL; // ⬅️ 추가
 
 const SearchFeed = () => {
   const [keyword, setKeyword] = useState("");
@@ -12,13 +16,11 @@ const SearchFeed = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // ✅ CSV 불러오기 먼저 완료
   useEffect(() => {
     fetch("/data/premier_league_players_ko.csv")
       .then((res) => res.text())
       .then((text) => {
         const result = Papa.parse(text, { header: true });
-        console.log("🔥 CSV 첫 행:", result.data[0]);
         const clean = result.data.filter(
           (p) => p.player_name || p.player_name_ko
         );
@@ -27,9 +29,8 @@ const SearchFeed = () => {
       .catch((err) => console.error("CSV 불러오기 실패:", err));
   }, []);
 
-  // ✅ Header에서 전달된 검색어 반영 (CSV가 다 로드된 뒤에)
   useEffect(() => {
-    if (!players.length) return; // ⚠️ CSV 로드 전엔 실행하지 않음
+    if (!players.length) return;
     const initialKeyword = location.state?.initialKeyword || "";
     if (initialKeyword) {
       setKeyword(initialKeyword);
@@ -37,7 +38,6 @@ const SearchFeed = () => {
     }
   }, [players, location.state]);
 
-  // ✅ 자동완성 필터링
   useEffect(() => {
     if (!keyword.trim()) {
       setFiltered([]);
@@ -54,7 +54,6 @@ const SearchFeed = () => {
     setFiltered(result.slice(0, 8));
   }, [keyword, players]);
 
-  // ✅ 선수 선택
   const handleSelectPlayer = (p) => {
     const full = p.player_name_ko || p.player_name;
     setKeyword(full);
@@ -62,7 +61,6 @@ const SearchFeed = () => {
     setFiltered([]);
   };
 
-  // ✅ 엔터로 자동완성 선택
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && filtered.length > 0) {
       e.preventDefault();
@@ -70,7 +68,6 @@ const SearchFeed = () => {
     }
   };
 
-  // ✅ 포커스 아웃 시 자동완성 닫기
   const handleBlur = () => {
     const lower = keyword.toLowerCase().trim();
     if (!lower) return;
@@ -90,13 +87,13 @@ const SearchFeed = () => {
     setTimeout(() => setFiltered([]), 100);
   };
 
-  // ✅ 게시글 로드
+  // 🔥 수정된 부분: localhost 삭제 → API URL로 변경 + credentials 포함
   useEffect(() => {
     if (!selectedPlayer) return;
+
     fetch(
-      `http://localhost:3000/api/posts/player/${encodeURIComponent(
-        selectedPlayer
-      )}`
+      `${API}/api/posts/player/${encodeURIComponent(selectedPlayer)}`,
+      { credentials: "include" }
     )
       .then((res) => res.json())
       .then((data) => setPosts(data))
@@ -127,7 +124,6 @@ const SearchFeed = () => {
           </button>
         </header>
 
-        {/* ✅ 검색창 */}
         <div className="player-search">
           <input
             type="text"
@@ -153,7 +149,6 @@ const SearchFeed = () => {
           )}
         </div>
 
-        {/* ✅ 검색 결과 */}
         {selectedPlayer ? (
           <>
             <h2 className="search-result-title">
